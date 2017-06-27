@@ -7,10 +7,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/w3.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/accordion.css' %}" />
     <script src="{% static 'js/d3.js' %}"></script>
     <script src="{% static 'js/d3.layout.js' %}"></script>
+    <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/modernizr.js' %}"></script>
+
 
     <style type="text/css">
+        ul {
+            list-style-type: none;
+        }
+        
+        #sidebar {
+            background: #5C5C5C
+        }
+        
         body {
             height: 100vh;
             width: 100vw;
@@ -32,7 +45,8 @@
         }
         
         .node text {
-            font-size: 11px;
+            font-size: 15px;
+            font-family: "Helvetica Neue", Helvetica;
         }
         
         path.link {
@@ -40,33 +54,28 @@
             stroke: #ccc;
             stroke-width: 1.5px;
         }
-    </style>
-
-    <style type="text/css">
-        .svg-container {
-            display: inline-block;
-            position: relative;
-            width: 100%;
-            padding-bottom: 100%;
-            /* aspect ratio */
-            vertical-align: top;
-            overflow: hidden;
-        }
-        
-        .svg-content-responsive {
-            display: inline-block;
-            position: absolute;
-            top: 10px;
-            left: 0;
+        label
+        {
+            font-weight : 100;
         }
     </style>
 </head>
 
 <body>
-    <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="mySidebar">
-        <a href="#" class="w3-bar-item w3-button">Projects</a>
-        <a href="#" class="w3-bar-item w3-button">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="sidebar">
+        <ul class="cd-accordion-menu">
+            <li class="has-children">
+                <input type="checkbox" name="group-1" id="group-1" checked>
+                <label for="group-1">Projects</label>
+
+                <ul>
+                    <li><a href="#0">New</a></li>
+                    <li><a href="#0">List</a></li>
+                    <li><a href="#0">Image</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- cd-accordion-menu -->
     </div>
 
     <div zclass="w3-main" id="main">
@@ -93,7 +102,7 @@
 <script>
     function toggle_sidebar()
     {
-         var isDisplayed = (document.getElementById("mySidebar").style.display == 'block');
+         var isDisplayed = (document.getElementById("sidebar").style.display == 'block');
          if(isDisplayed)
          {
             w3_close();
@@ -106,23 +115,23 @@
     
     function w3_open() {
         document.getElementById("main").style.marginLeft = "15vw";
-        document.getElementById("mySidebar").style.width = "15vw";
-        document.getElementById("mySidebar").style.display = "block";        
+        document.getElementById("sidebar").style.width = "15vw";
+        document.getElementById("sidebar").style.display = "block";        
     }
 
     function w3_close() {
         document.getElementById("main").style.marginLeft = "0vw";
-        document.getElementById("mySidebar").style.display = "none";       
+        document.getElementById("sidebar").style.display = "none";       
     }
 </script>
 
 <script type="text/javascript">
 
-var m = [20, 120, 20, 120],
-    w = 1880 - m[1] - m[3],
-    h = 800 - m[0] - m[2],
-    i = 0,
+var i = 0,
     root;    
+
+var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
 var tree = d3.layout.tree()
     .size([h, w]);
@@ -130,21 +139,12 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal()
     .projection(function(d) { return [d.y, d.x]; });
 
-var vis = d3.select("#body").append("svg:svg")
-    .attr("width", w + m[1] + m[3])
-    .attr("height", h + m[0] + m[2])
+var vis = d3.select("#body").append("svg:svg")   
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 "+w+" "+h+" ")
     .append("svg:g")
-    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+    .attr("transform", "translate(120,20)");
 
-/*var vis = d3.select("#body")
-   .append("div")
-   .classed("svg-container", true) //container class to make it responsive
-   .append("svg:svg")
-   //responsive SVG needs these 2 attributes and no width and height attr
-   .attr("preserveAspectRatio", "xMinYMin meet")
-   .attr("viewBox", "0 0 600 400")
-   //class to make it responsive
-   .classed("svg-content-responsive", true); */
 
 d3.json("http://localhost:8000/level0/json_model", function(json) {
   root = json;
@@ -170,7 +170,7 @@ function update(source) {
   var nodes = tree.nodes(root).reverse();
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 400; });
+  nodes.forEach(function(d) { d.y = d.depth * 450; });
 
   // Update the nodes…
   var node = vis.selectAll("g.node")
