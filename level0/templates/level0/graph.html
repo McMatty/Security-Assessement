@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'css/alchemy.min.css' %}"/>
+</head>
+<body>
+  <div class="alchemy" id="alchemy"></div>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="{% static 'js/d3.js' %}"></script>
+  <script src="{% static 'js/lodash.js' %}"></script>
+  <script src="{% static 'js/alchemyConfig.js' %}"></script>
+  <script src="{% static 'js/alchemy.min.js' %}"></script>
+  <script type="text/javascript">
+        alchemy = new Alchemy(config)
+    </script>
+  </body>
+</html>
