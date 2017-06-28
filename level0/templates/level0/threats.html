@@ -16,12 +16,21 @@
 
 
     <style type="text/css">
+        h1 {
+            font-size: 1.9vw;
+        }
+
+        h5{
+             font-size: 1.1vw;
+        }  
+        
         ul {
             list-style-type: none;
         }
         
         #sidebar {
-            background: #5C5C5C
+            background: #5C5C5C;
+            font-size: .8vw;
         }
         
         body {
@@ -54,9 +63,9 @@
             stroke: #ccc;
             stroke-width: 1.5px;
         }
-        label
-        {
-            font-weight : 100;
+        
+        label {
+            font-weight: 100;
         }
     </style>
 </head>
@@ -65,13 +74,19 @@
     <div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none" id="sidebar">
         <ul class="cd-accordion-menu">
             <li class="has-children">
-                <input type="checkbox" name="group-1" id="group-1" checked>
+                <input type="checkbox" name="group-1" id="group-1" unchecked>
                 <label for="group-1">Projects</label>
-
                 <ul>
                     <li><a href="#0">New</a></li>
                     <li><a href="#0">List</a></li>
-                    <li><a href="#0">Image</a></li>
+                </ul>
+            </li>
+            <li class="has-children">
+                <input type="checkbox" name="group-2" id="group-2" unchecked>
+                <label for="group-2">Reports</label>
+                <ul>
+                    <li><a href="#0">New</a></li>
+                    <li><a href="#0">List</a></li>
                 </ul>
             </li>
         </ul>

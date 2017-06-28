@@ -3,9 +3,11 @@
 Main Components 
 
 -------------------------------- */
+
 .cd-accordion-menu {
   width: 90%;
   max-width: 600px; 
+  padding: 0px;
 }
 .cd-accordion-menu ul {
   /* by default hide all sub menus */
@@ -91,10 +93,7 @@ Main Components
 .cd-accordion-menu ul a { 
   padding-left: 82px;
 }
-.no-touch .cd-accordion-menu ul label:hover, .no-touch
-.cd-accordion-menu ul a:hover {
-  background: #3c3f45;
-}
+
 .cd-accordion-menu > li:last-of-type > label,
 .cd-accordion-menu > li:last-of-type > a,
 .cd-accordion-menu > li > ul > li:last-of-type label,
@@ -132,7 +131,7 @@ Main Components
 }
 @media only screen and (min-width: 600px) {
   .cd-accordion-menu label, .cd-accordion-menu a {
-    padding: 24px 24px 24px 82px;  
+    padding: 0 0 0 82px;  
   }
   .cd-accordion-menu label::before {
     left: 24px;
