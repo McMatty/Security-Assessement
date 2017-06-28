@@ -1,7 +1,13 @@
+import os
+
 from django.http import HttpResponse
 from neo4j.v1 import GraphDatabase, basic_auth
 from django.template import loader
+from sqlite3 import dbapi2 as sqlite3
 import json
+
+from Assessement.settings import DATABASES
+
 
 def index(request):
     return HttpResponse()
@@ -13,22 +19,28 @@ def threats(request):
 
 def graph(request):
     template = loader.get_template('level0/graph.html')
-
+    db = connect_db()
     return HttpResponse(template.render())
 
 def get_json_model(request):
     driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
     session = driver.session()
-    result = session.run("MATCH(t:Threat)-[m:Mitigation]-(c:Control) RETURN t.threat as threat, collect(c.title) as control")
+    result = session.run("MATCH(t:Threat)-[m:Mitigation]-(c:Control) RETURN t.threat as threat, collect(c) as control")
     session.close()
+    db = connect_db()
 
     nodes = []
-    for record in result:
+    for record in result.data():
         childnodes =[]
-        for title in record["control"]:
+        for control in record["control"]:
+
+                cur = db.execute('SELECT description,guidance from controls where id=? ', [control.properties['name']])
+                details = cur.fetchone()
+
                 #TODO: Fix data in neo4j so I dont need to lowercase strings
+                title = control.properties['title']
                 name = title[0] + title[1:].lower()
-                control = {"name": name, "description" : "Control fixes all!", "implementation" : "Implement all the things!"}
+                control = {"name": name, "description" : details[0], "implementation" : details[1]}
                 childnodes.append(control)
 
         nodes.append({"name": record["threat"], "children" : childnodes})
@@ -65,3 +77,10 @@ def contains (list, filter):
         if filter(x):
             return True;
         return False;
+
+def connect_db():
+    """Connects to the specific database."""
+    databaselocation = DATABASES['default']['NAME']
+    rv = sqlite3.connect(databaselocation)
+    rv.row_factory = sqlite3.Row
+    return rv
