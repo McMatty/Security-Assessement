@@ -6,6 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff" />
     <link rel="stylesheet" href="{% static 'css/w3.css' %}" />
     <link rel="stylesheet" href="{% static 'css/accordion.css' %}" />
     <script src="{% static 'js/d3.js' %}"></script>
@@ -14,19 +16,33 @@
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/modernizr.js' %}"></script>
 
-
+<!--Project new CSS -->
+    <style type="text/css">
+        .threat-list li {
+            display: inline-block;
+            margin: 2px;
+            list-style: none;
+            padding: 2px 3px;
+            background: #009688;
+            font-color:white;
+            color : white;
+            border: 1px solid #d6d6d6;
+            float: left;
+        }
+    </style>
+<!--Project threat + control CSS -->
     <style type="text/css">
         h1 {
             font-size: 1.9vw;
         }
-
-        h2{
-             font-size: 1.1vw;
-        }  
-
-        h5{
-             font-size: .7vw;
-        } 
+        
+        h2 {
+            font-size: 1.1vw;
+        }
+        
+        h5 {
+            font-size: .7vw;
+        }
         
         ul {
             list-style-type: none;
@@ -79,15 +95,15 @@
         <ul class="cd-accordion-menu">
             <li class="has-children">
                 <input type="checkbox" name="group-1" id="group-1" unchecked>
-                <label for="group-1">Projects</label>
+                <label for="group-1">Threat assessments</label>
                 <ul>
-                    <li><a href="#0">New</a></li>
+                    <li><a href="/level0/threats/new">New</a></li>
                     <li><a href="#0">List</a></li>
                 </ul>
             </li>
             <li class="has-children">
                 <input type="checkbox" name="group-2" id="group-2" unchecked>
-                <label for="group-2">Reports</label>
+                <label for="group-2">Developer threats</label>
                 <ul>
                     <li><a href="#0">New</a></li>
                     <li><a href="#0">List</a></li>
@@ -105,15 +121,7 @@
             </div>
         </div>
         <div id="container">
-
-            <div id="body" class="col-sm-9">
-            </div>
-
-            <div style="display:block" id="information" class="col-sm-3 w3-bar-block w3-card-2">
-                <h2 id="title"></h2>
-                <h5 id="description"></h5>
-                <h5 id="implementation"></h5>
-            </div>
+            {% include container %}
         </div>
     </div>
 </body>
@@ -165,7 +173,7 @@ var vis = d3.select("#body").append("svg:svg")
     .attr("transform", "translate(120,20)");
 
 
-d3.json("http://localhost:8000/level0/json_model", function(json) {
+d3.json("http://localhost:8000/level0/json_model/{{id}}/", function(json) {
   root = json;
   root.x0 = h / 2;
   root.y0 = 0;

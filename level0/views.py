@@ -1,4 +1,3 @@
-import os
 
 from django.http import HttpResponse
 from neo4j.v1 import GraphDatabase, basic_auth
@@ -8,29 +7,37 @@ import json
 
 from Assessement.settings import DATABASES
 
-
 def index(request):
     return HttpResponse()
 
-def threats(request):
+def new_project(request):
     template = loader.get_template('level0/threats.html')
+    threatList = get_threats()
+    context = {
+        'container': "level0/project-content.html",
+        'id' : 0,
+        'threats' : threatList
+    }
+    return HttpResponse(template.render(context, request))
 
-    return HttpResponse(template.render())
+def threats(request, id=0):
+    template = loader.get_template('level0/threats.html')
+    context = {
+        'container': "level0/assessment-content.html",
+        'id': id,
+    }
+    return HttpResponse(template.render(context, request))
 
-def graph(request):
-    template = loader.get_template('level0/graph.html')
-    db = connect_db()
-    return HttpResponse(template.render())
-
-def get_json_model(request):
+def get_json_model(request, id=0):
     driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
     session = driver.session()
-    result = session.run("MATCH(t:Threat)-[m:Mitigation]-(c:Control) RETURN t.threat as threat, collect(c) as control")
+    result = session.run("MATCH (p:project)-[r:RiskOf]-(t:Threat)-[m:Mitigation]-(c:Control) WHERE p.id = $id RETURN p.name as projectName, t.threat as threat, collect(c) as control", id=int(id))
     session.close()
-    db = connect_db()
+    db = connect_db() #sqlite
 
     nodes = []
     for record in result.data():
+        projectName = record["projectName"]
         childnodes =[]
         for control in record["control"]:
 
@@ -45,32 +52,34 @@ def get_json_model(request):
 
         nodes.append({"name": record["threat"], "children" : childnodes})
 
-    return HttpResponse(json.dumps({"children": nodes, "name": "VSTS" }), content_type="application/json")
+    return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
-def get_json_graph(request):
+def get_threats():
     driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
     session = driver.session()
-    result = session.run("MATCH(t:Threat)-[m:Mitigation]-(c:Control) RETURN t.threat as threat, collect(c.title) as control")
+    result = session.run("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")
     session.close()
 
-    nodes =[]
-    rels = []
-    id = 0
-    for record in result:
-        id+=1
-        source = id;
-        nodes.append({"id": source, "name": record["threat"], "nodeType" : "threat", "cluster": 1})
+    nodes = []
+    for threatData in result.data():
+        properties = threatData['threat'].properties
+        threat = {"id": properties['threatId'],"name": properties['threat']}
+        nodes.append(threat)
+    return nodes
 
-        for title in record["control"]:
-            #This function isn't working correctly and adding each time
-            if not (contains(nodes, lambda x: x["name"] == title)):
-                id+=1
-                control = {"id": id, "name" : title, "nodeType" : "control", "cluster" : 2}
-                nodes.append(control)
-                rels.append({"source": source, "target": id})
+def get_json_threats(request):
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
+    session = driver.session()
+    result = session.run("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")
+    session.close()
 
+    nodes = []
+    for threatData in result.data():
+        properties = threatData['threat'].properties
+        threat = {"id": properties['threatId'],"name": properties['threat']}
+        nodes.append(threat)
 
-    return HttpResponse(json.dumps({"nodes" : nodes, "edges" : rels}), content_type="application/json")
+    return HttpResponse(json.dumps(nodes), content_type="application/json")
 
 def contains (list, filter):
     for x in list:
