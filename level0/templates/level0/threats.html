@@ -15,22 +15,61 @@
     <script src="{% static 'js/jquery-2.1.4.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/modernizr.js' %}"></script>
+    <!-- Main container -->
+    <style type="text/css">
+        #container {
+            animation: fadein 1.5s opacity: 1;
+        }
+        
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
 
-<!--Project new CSS -->
+    <!--Project new CSS -->
+    <style type="text/css">
+        .project {
+            float: left;
+            padding: 5px;
+        }
+        
+        .project a {
+            width: 20vw;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+    </style>
+
+    <!-- Project new CSS -->
     <style type="text/css">
         .threat-list li {
             display: inline-block;
             margin: 2px;
             list-style: none;
             padding: 2px 3px;
-            background: #009688;
-            font-color:white;
-            color : white;
-            border: 1px solid #d6d6d6;
             float: left;
+            transition: all 0.2s ease-in-out 0s;
+            cursor: pointer;
+        }
+        
+        .threat-list .threat {
+            background: #009688;
+            color: white;
+            border: 1px solid #d6d6d6;
+        }
+        
+        .active-threat {
+            background: #CE5D5D;
+            color: white;
+            border: 1px solid #1F1D1D;
         }
     </style>
-<!--Project threat + control CSS -->
+    <!--Project threat + control CSS -->
     <style type="text/css">
         h1 {
             font-size: 1.9vw;
@@ -76,6 +115,7 @@
         .node text {
             font-size: 15px;
             font-family: "Helvetica Neue", Helvetica;
+            cursor: pointer;
         }
         
         path.link {
@@ -98,7 +138,7 @@
                 <label for="group-1">Threat assessments</label>
                 <ul>
                     <li><a href="/level0/threats/new">New</a></li>
-                    <li><a href="#0">List</a></li>
+                    <li><a href="/level0/threats/list">List</a></li>
                 </ul>
             </li>
             <li class="has-children">
@@ -106,6 +146,14 @@
                 <label for="group-2">Developer threats</label>
                 <ul>
                     <li><a href="#0">New</a></li>
+                    <li><a href="#0">List</a></li>
+                </ul>
+            </li>
+            <li class="has-children">
+                <input type="checkbox" name="group-3" id="group-3" unchecked>
+                <label for="group-3">Configure threats</label>
+                <ul>
+                    <li><a href="#0">Assign controls</a></li>
                     <li><a href="#0">List</a></li>
                 </ul>
             </li>
@@ -120,12 +168,88 @@
                 <h1>Security self service</h1>
             </div>
         </div>
-        <div id="container">
+        <div id="container" class="w3-animate-opacity">
             {% include container %}
         </div>
     </div>
 </body>
+<!-- project new -->
+<script>
+    $(function(){
+        $('.threat-list li').click(function(e) {
+            e.preventDefault()
+            
+            $that = $(this);
+            
+            if($that.hasClass('threat')) {
+                $that.removeClass('threat');
+                $that.addClass('active-threat');
+            }
+            else
+            {
+                $that.removeClass('active-threat');
+                $that.addClass('threat');
+            }
+        });
+    })
 
+    function deleteProject(projectId){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {       
+            location.reload()
+        }
+        };
+        xhttp.open("GET", "/level0/threats/delete/" + projectId, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(); 
+    }
+
+   function generatePostData(threatList){
+        postData="projectName=" + document.getElementById('name').value
+        postData+="&email=" + document.getElementById('email').value
+        postData+="&phone=" + document.getElementById ('phone').value
+        
+        if(threatList && threatList.length > 0)
+        {
+            postData+="&threatList="
+            threatList.forEach(function(item, index){
+                postData+= "'" + item.id + "'";
+                if(index < threatList.length - 1)                {
+                    postData+= ","
+                }
+            });
+        }
+
+        return postData;
+    }
+
+   function postProjectData(){
+    //Need to do a modal loading icon on screen to prevent reclicking
+    var threatList = Array.from(document.getElementsByClassName("active-threat"))
+    if (threatList && threatList.length > 0 && document.getElementById('name').value.length > 0){
+        var data = generatePostData(threatList);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {       
+            var responseObj = JSON.parse(this.response)
+            if(responseObj.success === true)
+            {
+                window.location.href ='/level0/threats/' + responseObj.projectId
+            }
+        }
+        };
+        xhttp.open("GET", "/level0/threats/add?" + data, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(); 
+    }
+    else
+    {
+        alert('Fill the fields out (TODO: Nice modal message telling user they are dumb)')
+    }
+   }
+</script>
+<!-- global -->
 <script>
     function toggle_sidebar()
     {
@@ -152,6 +276,7 @@
     }
 </script>
 
+<!-- Threat assessement -->
 <script type="text/javascript">
 
 var i = 0,
@@ -211,7 +336,7 @@ function update(source) {
 
   nodeEnter.append("svg:circle")
       .attr("r", 1e-6)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+      .style("fill", function(d) { return (d._children && d._children.length > 0) ? "lightsteelblue" : "#fff"; });
 
   nodeEnter.append("svg:text")
       .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
@@ -227,7 +352,7 @@ function update(source) {
 
   nodeUpdate.select("circle")
       .attr("r", 4.5)
-      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+      .style("fill", function(d) { return (d._children && d._children.length > 0) ? "lightsteelblue" : "#fff"; });
 
   nodeUpdate.select("text")
       .style("fill-opacity", 1);

@@ -120,7 +120,7 @@ Main Components
 }
 .cd-accordion-menu ul ul ul label,
 .cd-accordion-menu ul ul ul a {
-  padding-left: 118px;
+  padding-left: 100px;
 }
 .cd-accordion-menu ul ul ul label::before {
   left: 72px;
@@ -141,7 +141,7 @@ Main Components
   }
   .cd-accordion-menu ul label,
   .cd-accordion-menu ul a {
-    padding-left: 106px;
+    padding-left: 5.3vw;
   }
   .cd-accordion-menu ul label::before {
     left: 48px;
