@@ -298,7 +298,7 @@ var vis = d3.select("#body").append("svg:svg")
     .attr("transform", "translate(120,20)");
 
 
-d3.json("http://localhost:8000/level0/json_model/{{id}}/", function(json) {
+d3.json("/level0/json_model/{{id}}/", function(json) {
   root = json;
   root.x0 = h / 2;
   root.y0 = 0;

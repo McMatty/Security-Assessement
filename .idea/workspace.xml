@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e0ec41c-2066-4c5a-a906-b71aaf9c9a50" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/level0/templates/level0/project-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/static/css/accordion.css" afterPath="$PROJECT_DIR$/level0/static/css/accordion.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/templates/level0/project-content.html" afterPath="$PROJECT_DIR$/level0/templates/level0/project-content.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/templates/level0/threats.html" afterPath="$PROJECT_DIR$/level0/templates/level0/threats.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/urls.py" afterPath="$PROJECT_DIR$/level0/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/views.py" afterPath="$PROJECT_DIR$/level0/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assessement/settings.py" afterPath="$PROJECT_DIR$/Assessement/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +14,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/level0/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="502">
@@ -73,7 +66,7 @@
             <state relative-caret-position="933">
               <caret line="171" column="32" lean-forward="false" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
               <folding>
-                <marker date="1498788041873" expanded="true" signature="8378:12632" ph="..." />
+                <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
               </folding>
             </state>
           </provider>
@@ -108,6 +101,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -154,7 +157,6 @@
         <option value="$PROJECT_DIR$/Assessement/urls.py" />
         <option value="$PROJECT_DIR$/level0/templates/graph.html" />
         <option value="$PROJECT_DIR$/level0/js/alchemyConfig.js" />
-        <option value="$PROJECT_DIR$/Assessement/settings.py" />
         <option value="$PROJECT_DIR$/level0/static/js/d3.js" />
         <option value="$PROJECT_DIR$/level0/static/js/lodash.js" />
         <option value="$PROJECT_DIR$/level0/templates/level0/graph.html" />
@@ -169,6 +171,7 @@
         <option value="$PROJECT_DIR$/level0/templates/level0/project-list.html" />
         <option value="$PROJECT_DIR$/level0/urls.py" />
         <option value="$PROJECT_DIR$/level0/views.py" />
+        <option value="$PROJECT_DIR$/Assessement/settings.py" />
       </list>
     </option>
   </component>
@@ -232,15 +235,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="level0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="level0" />
+              <option name="myItemId" value="Assessement" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -325,7 +320,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Assessement" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
-      <option name="PARAMETERS" value="runserver" />
+      <option name="PARAMETERS" value="runserver 0.0.0.0:8000" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
@@ -498,7 +493,7 @@
         <state relative-caret-position="2686">
           <caret line="158" column="36" lean-forward="false" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
           <folding>
-            <marker date="1498788041873" expanded="true" signature="8378:12632" ph="..." />
+            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
           </folding>
         </state>
       </provider>
@@ -566,7 +561,7 @@
         <state relative-caret-position="833">
           <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
           <folding>
-            <marker date="1498788041873" expanded="true" signature="8378:12632" ph="..." />
+            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
           </folding>
         </state>
       </provider>
@@ -634,7 +629,7 @@
         <state relative-caret-position="833">
           <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
           <folding>
-            <marker date="1498788041873" expanded="true" signature="8378:12632" ph="..." />
+            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
           </folding>
         </state>
       </provider>
@@ -702,7 +697,7 @@
         <state relative-caret-position="833">
           <caret line="49" column="36" lean-forward="true" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
           <folding>
-            <marker date="1498788041873" expanded="true" signature="8378:12632" ph="..." />
+            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
           </folding>
         </state>
       </provider>
@@ -823,14 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="61" column="36" lean-forward="false" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assessement/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -862,7 +849,7 @@
         <state relative-caret-position="933">
           <caret line="171" column="32" lean-forward="false" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
           <folding>
-            <marker date="1498788041873" expanded="true" signature="8378:12632" ph="..." />
+            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
           </folding>
         </state>
       </provider>
@@ -924,6 +911,14 @@
             <element signature="e#2932#3449#0" expanded="false" />
             <element signature="e#3473#3655#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
