@@ -1,0 +1,12 @@
+<div class="w3-container w3-card-4 w3-light-grey w3-text-teal w3-margin">
+    <h2 class="w3-center">Project features</h2>
+
+<select id="project">
+  {% for project in projectList %}         
+            <option value="{{project.id}}">{{project.projectName}}</option> 
+  {% endfor %}  
+</select>     
+
+    <button class="w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="postProjectFeatures();return false;">Assign features</button>
+
+</div>

@@ -15,6 +15,24 @@
             ]
         },
         {
+            "name": "Django",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,           
+            "program": "${workspaceRoot}/manage.py",
+            "args": [
+                "runserver",
+                "--no-color",
+                "--noreload"
+            ],
+            "debugOptions": [
+                "WaitOnAbnormalExit",
+                "WaitOnNormalExit",
+                "RedirectOutput",
+                "DjangoDebugging"
+            ]
+        },
+        {
             "name": "Integrated Terminal/Console",
             "type": "python",
             "request": "launch",

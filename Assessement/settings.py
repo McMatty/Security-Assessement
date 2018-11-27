@@ -25,7 +25,7 @@ SECRET_KEY = '*^ks2mhu6k)*c+pfg%=+nvy$n3rteg)r!$dv8&ps5%hk+l4+9='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gr053381.ldstatdv.net']
+ALLOWED_HOSTS = ['GR059619.ldstat01.net', 'localhost']
 
 
 # Application definition

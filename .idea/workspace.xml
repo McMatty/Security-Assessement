@@ -2,7 +2,68 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e0ec41c-2066-4c5a-a906-b71aaf9c9a50" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/certificates/neo4j.cert" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/certificates/neo4j.key" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/data/dbms/auth" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/import/Controls.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/import/Relations.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/import/Threats.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/logs/debug.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.counts.db.a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.counts.db.b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.labelscanstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.labeltokenstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.labeltokenstore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.labeltokenstore.db.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.labeltokenstore.db.names.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.nodestore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.nodestore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.nodestore.db.labels" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.nodestore.db.labels.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.arrays" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.arrays.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.index.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.index.keys" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.index.keys.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.strings" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.propertystore.db.strings.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshipgroupstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshipgroupstore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshipstore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshipstore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshiptypestore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshiptypestore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshiptypestore.db.names" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.relationshiptypestore.db.names.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.schemastore.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.schemastore.db.id" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/neostore.transaction.db.0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/1/1/segments_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/1/1/write.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/1/failure-message" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/11/1/segments_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/11/1/write.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/11/failure-message" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/16/1/segments_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/16/1/write.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/16/failure-message" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/6/1/segments_2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/6/1/write.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/schema/index/lucene/6/failure-message" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assessment.graphdb/store_lock" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assessement/settings.py" afterPath="$PROJECT_DIR$/Assessement/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/templates/level0/project-content.html" afterPath="$PROJECT_DIR$/level0/templates/level0/project-content.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/templates/level0/project-list.html" afterPath="$PROJECT_DIR$/level0/templates/level0/project-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/templates/level0/threats.html" afterPath="$PROJECT_DIR$/level0/templates/level0/threats.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/urls.py" afterPath="$PROJECT_DIR$/level0/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/level0/views.py" afterPath="$PROJECT_DIR$/level0/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,28 +75,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/level0/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="102" column="13" lean-forward="true" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
+            <state relative-caret-position="85">
+              <caret line="133" column="14" lean-forward="true" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
               <folding>
                 <element signature="e#1#37#0" expanded="true" />
-                <element signature="e#893#1100#0" expanded="false" />
-                <element signature="e#2438#2895#0" expanded="false" />
-                <element signature="e#2932#3449#0" expanded="false" />
-                <element signature="e#3473#3655#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python35/Lib/site-packages/django/core/handlers/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-532">
-              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -43,8 +90,8 @@
       <file leaf-file-name="project-list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/level0/templates/level0/project-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+            <state relative-caret-position="85">
+              <caret line="5" column="117" lean-forward="false" selection-start-line="5" selection-start-column="117" selection-end-line="5" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -54,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/manage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -63,11 +110,9 @@
       <file leaf-file-name="threats.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/level0/templates/level0/threats.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="933">
-              <caret line="171" column="32" lean-forward="false" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
-              <folding>
-                <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
-              </folding>
+            <state relative-caret-position="3485">
+              <caret line="205" column="5" lean-forward="false" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,13 +130,9 @@
       <file leaf-file-name="project-content.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/level0/templates/level0/project-content.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="35" selection-end-column="6" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,21 +147,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/level0/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="289">
+              <caret line="19" column="89" lean-forward="false" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -168,10 +199,11 @@
         <option value="$PROJECT_DIR$/level0/templates/level0/assessment-content.html" />
         <option value="$PROJECT_DIR$/level0/templates/level0/threats.html" />
         <option value="$PROJECT_DIR$/level0/templates/level0/project-content.html" />
-        <option value="$PROJECT_DIR$/level0/templates/level0/project-list.html" />
-        <option value="$PROJECT_DIR$/level0/urls.py" />
-        <option value="$PROJECT_DIR$/level0/views.py" />
         <option value="$PROJECT_DIR$/Assessement/settings.py" />
+        <option value="$PROJECT_DIR$/level0/templates/level0/project-list.html" />
+        <option value="$PROJECT_DIR$/level0/views.py" />
+        <option value="$PROJECT_DIR$/level0/urls.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
       </list>
     </option>
   </component>
@@ -197,8 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -235,12 +265,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="level0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="level0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assessement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assessement" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Assessement" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -249,12 +303,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\GitRepositories\Assessement\level0\templates\level0" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\GitRepositories\Assessement\level0\static" />
       <recent name="C:\GitRepositories\Assessement" />
-      <recent name="C:\GitRepositories\Assessement\level0\templates\level0" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\GitRepositories\Assessement\level0\templates\level0" />
     </key>
   </component>
@@ -417,25 +471,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2046875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20364584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33751306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40438873" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09717868" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39916405" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33751306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -447,23 +500,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/level0/views.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="11" />
+          <line>129</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="36" lean-forward="true" selection-start-line="61" selection-start-column="36" selection-end-line="61" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/level0/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -480,10 +525,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
-            <element signature="e#893#1100#0" expanded="false" />
-            <element signature="e#2438#2895#0" expanded="false" />
-            <element signature="e#2932#3449#0" expanded="false" />
-            <element signature="e#3473#3655#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -492,9 +533,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2686">
           <caret line="158" column="36" lean-forward="false" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
-          <folding>
-            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -506,21 +545,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html" />
     <entry file="file://$PROJECT_DIR$/Assessement/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#645#686#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -528,7 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
           <caret line="120" column="23" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -548,10 +576,6 @@
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
-            <element signature="e#893#1100#0" expanded="false" />
-            <element signature="e#2438#2895#0" expanded="false" />
-            <element signature="e#2932#3449#0" expanded="false" />
-            <element signature="e#3473#3655#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -560,9 +584,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding>
-            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -574,21 +596,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html" />
     <entry file="file://$PROJECT_DIR$/Assessement/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#645#686#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -606,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
           <caret line="120" column="23" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -616,10 +627,6 @@
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
-            <element signature="e#893#1100#0" expanded="false" />
-            <element signature="e#2438#2895#0" expanded="false" />
-            <element signature="e#2932#3449#0" expanded="false" />
-            <element signature="e#3473#3655#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -628,9 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="36" lean-forward="false" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding>
-            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -642,21 +647,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html" />
     <entry file="file://$PROJECT_DIR$/Assessement/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#645#686#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -674,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
           <caret line="120" column="23" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,10 +678,6 @@
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
-            <element signature="e#893#1100#0" expanded="false" />
-            <element signature="e#2438#2895#0" expanded="false" />
-            <element signature="e#2932#3449#0" expanded="false" />
-            <element signature="e#3473#3655#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -696,9 +686,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="36" lean-forward="true" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding>
-            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -710,21 +698,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html" />
     <entry file="file://$PROJECT_DIR$/Assessement/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="78" lean-forward="false" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
-          <folding>
-            <element signature="e#645#686#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -732,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
           <caret line="120" column="23" lean-forward="false" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,20 +744,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/static/js/alchemy.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/level0/static/css/alchemy.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="0" column="1376" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="11861" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/static/js/alchemy.min.js" />
+    <entry file="file://$PROJECT_DIR$/level0/static/css/alchemy.min.css" />
     <entry file="file://$PROJECT_DIR$/level0/static/js/d3.v3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -788,13 +753,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/static/js/alchemyConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" lean-forward="true" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/static/js/alchemyConfig.js" />
     <entry file="file://$PROJECT_DIR$/level0/static/js/d3.layout.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
@@ -806,15 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/level0/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,16 +772,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="e#645#686#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html">
+    <entry file="file://$PROJECT_DIR$/level0/templates/level0/graph.html" />
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/templates/level0/project-content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python35/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/level0/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
+          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -846,79 +824,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/level0/templates/level0/threats.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="933">
-          <caret line="171" column="32" lean-forward="false" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
-          <folding>
-            <marker date="1498791104279" expanded="true" signature="8378:12688" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="3485">
+          <caret line="205" column="5" lean-forward="false" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/level0/templates/level0/project-content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="35" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/level0/templates/level0/project-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+        <state relative-caret-position="85">
+          <caret line="5" column="117" lean-forward="false" selection-start-line="5" selection-start-column="117" selection-end-line="5" selection-end-column="117" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/level0/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="32" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+        <state relative-caret-position="289">
+          <caret line="19" column="89" lean-forward="false" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python35/Lib/site-packages/django/core/handlers/base.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-532">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/level0/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="102" column="13" lean-forward="true" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
+        <state relative-caret-position="85">
+          <caret line="133" column="14" lean-forward="true" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
           <folding>
             <element signature="e#1#37#0" expanded="true" />
-            <element signature="e#893#1100#0" expanded="false" />
-            <element signature="e#2438#2895#0" expanded="false" />
-            <element signature="e#2932#3449#0" expanded="false" />
-            <element signature="e#3473#3655#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assessement/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>

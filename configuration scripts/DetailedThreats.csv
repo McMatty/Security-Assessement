@@ -1,0 +1,162 @@
+ThreatID,Threat
+1,Accessing Functionality Not Properly Constrained by ACLs
+100,Overflow Buffers
+103,Clickjacking
+104,Cross Zone Scripting
+105,HTTP Request Splitting
+11,Cause Web Server Misclassification
+12,Choosing Message Identifier
+121,Exploit Test APIs
+126,Path Traversal
+128,Integer Attacks
+133,Try All Common Switches
+134,Email Injection
+135,Format String Injection
+136,LDAP Injection
+138,Reflection Injection
+140,Bypassing of Intermediate Forms in Multiple-Form Sets
+141,Cache Poisoning
+15,Command Delimiters
+150,Collect Data from Common Resource Locations
+157,Sniffing Attacks
+159,Redirect Access to Libraries
+160,Exploit Script-Based APIs
+167,White Box Reverse Engineering
+168,Windows ::DATA Alternate Data Stream
+17,"Accessing, Modifying or Executing Executable Files"
+177,Create files with the same name as files protected with a higher classification
+179,Calling Micro-Services Directly
+180,Exploiting Incorrectly Configured Access Control Security Levels
+182,Flash Injection
+183,IMAP/SMTP Command Injection
+185,Malicious Software Download
+186,Malicious Software Update
+189,Black Box Reverse Engineering
+19,Embedding Scripts within Scripts
+194,Fake the Source of Data
+195,Principal Spoof
+196,Session Credential Falsification through Forging
+2,Inducing Account Lockout
+20,Encryption Brute Forcing
+202,Create Malicious Client
+203,Manipulate Application Registry Values
+206,Lifting signing key and signing malicious code from a production environment
+207,Removing Important Client Functionality
+217,Exploiting Incorrectly Configured SSL
+219,XML Routing Detour Attacks
+220,Client-Server Protocol Manipulation
+221,XML External Entities
+23,File Content Injection
+230,XML Nested Payloads
+231,XML Oversized Payloads
+234,Hijacking a privileged process
+237,Calling Signed Code From Another Language Within A Sandbox Allow This 
+249,Linux Terminal Injection
+250,XML Injection
+251,Local Code Inclusion
+253,Remote Code Inclusion
+263,Force Use of Corrupted Files
+267,Leverage Alternate Encoding
+268,Audit Log Manipulation
+271,Schema Poisoning
+275,DNS Rebinding
+276,Inter-component Protocol Manipulation
+277,Data Interchange Protocol Manipulation
+279,Soap Manipulation
+292,Host Discovery
+30,Hijacking a Privileged Thread of Execution
+300,Port Scanning
+309,Network Topology Mapping
+312,Active OS Fingerprinting
+313,Passive OS Fingerprinting
+35,Leverage Executable Code in Non-Executable Files
+36,Using Unpublished APIs
+385,Transaction or Event Tampering via Application API Manipulation
+386,Application API Navigation Remapping
+387,Navigation Remapping To Propagate Malicious Content
+388,Application API Button Hijacking
+389,Content Spoofing Via Application API Manipulation
+39,Manipulating Opaque Client-based Data Tokens
+393,Lock Picking
+394,Using a Snap Gun Lock to Force a Lock
+395,Bypassing Electronic Locks and Access Controls
+396,Bypassing Card or Badge-Based Systems
+397,Cloning Magnetic Strip Cards
+398,Magnetic Strip Card Brute Force Attacks
+399,Cloning RFID Cards or Chips
+400,RFID Chip Deactivation or Destruction
+401,Hacking Hardware
+442,Malicious Logic Inserted Into To Product Software
+444,Development Alteration
+447,Design Alteration
+452,Malicious Logic Insertion into Product Hardware
+456,Malicious Logic Insertion into Product Memory
+461,Web Services API Signature Forgery Leveraging Hash Function Extension Weakness
+464,Evercookie
+468,Generic Cross-Browser Cross-Domain Theft
+469,HTTP DoS
+473,Signature Spoof
+482,TCP Flood
+484,XML Client-Side Attack
+486,UDP Flood
+487,ICMP Flood
+488,HTTP Flood
+489,SSL Flood
+49,Password Brute Forcing
+490,Amplification
+492,Regular Expression Exponential Blowup
+493,SOAP Array Blowup
+494,TCP Fragmentation
+495,UDP Fragmentation
+496,ICMP Fragmentation
+499,Intent Intercept
+50,Password Recovery Exploitation
+502,Intent Spoof
+503,WebView Exposure
+506,Tapjacking
+510,SaaS User Request Forgery
+522,Malicious Hardware Component Replacement
+523,Malicious Software Implanted
+524,Rogue Integration Procedures
+528,XML Flood
+529,Malware-Directed Internal Reconnaissance
+534,Malicious Hardware Update
+54,Query System for Information
+540,Overread Buffers
+541,Application Fingerprinting
+542,Targeted Malware
+545,Pull Data from System Resources
+547,Physical Destruction of Device or Component
+55,Rainbow Table Password Cracking
+560,Use of Known Domain Credentials
+567,Obtain Data via Utilities
+569,Collect Data as Provided by Users
+571,Block Logging to Central Repository
+578,Disable Security Software
+580,Application Footprinting
+582,Route Disabling
+587,Cross Frame Scripting (XFS)
+593,Session Hijacking
+595,Connection Reset
+6,Argument Injection
+601,Jamming
+603,Blockage
+616,Establish Rogue Location
+62,Cross Site Request Forgery
+620,Drop Encryption Level
+627,Counterfeit GPS Signals
+63,Cross-Site Scripting (XSS)
+66,SQL Injection
+68,Subvert Code-signing Facilities
+69,Target Programs with Elevated Privileges
+75,Manipulating Writeable Configuration Files
+77,Manipulating User-Controlled Variables
+82,Violating Implicit Assumptions Regarding XML Content (aka XML Denial of Service (XDoS))
+87,Forceful Browsing
+88,OS Command Injection
+89,Pharming
+90,Reflection Attack in Authentication Protocol
+94,Man in the Middle Attack
+97,Cryptanalysis
+98,Phishing
+99,XML Parser Attack

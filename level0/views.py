@@ -15,8 +15,22 @@ def new_project(request):
     threatList = get_threats()
     context = {
         'container': "level0/project-content.html",
+        'metaContainer': "level0/project-details-add.html",
         'id' : 0,
         'threats' : threatList
+    }
+    return HttpResponse(template.render(context, request))
+
+def new_features(request):
+    template = loader.get_template('level0/threats.html')
+    threatList = get_features()
+    projectList = get_projects()
+    context = {
+        'container': "level0/project-content.html",
+        'metaContainer': "level0/project-features-add.html",
+        'id' : 0,
+        'threats' : threatList,
+        'projectList': projectList
     }
     return HttpResponse(template.render(context, request))
 
@@ -34,12 +48,20 @@ def threats(request, id=0):
     template = loader.get_template('level0/threats.html')
     context = {
         'container': "level0/assessment-content.html",
-        'id': id,
+        "jsonAPI" : "/level0/json_model/{0}/".format(id),
+    }
+    return HttpResponse(template.render(context, request))
+
+def features(request, id=0):
+    template = loader.get_template('level0/threats.html')
+    context = {
+        'container': "level0/assessment-content.html",
+        "jsonAPI" : "/level0/get_features_json_model/{0}/".format(id),
     }
     return HttpResponse(template.render(context, request))
 
 def get_json_model(request, id=0):
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
     session = driver.session()
     query = "MATCH(p: Project)-[r: RiskOf]-(t: Threat) WHERE  p.id = $id"
     query +=" OPTIONAL MATCH(t)-[m: Mitigation]-(c: Control)"
@@ -55,11 +77,11 @@ def get_json_model(request, id=0):
         childnodes =[]
         for control in record["control"]:
 
-                cur = db.execute('SELECT description,guidance from controls where id=? ', [control.properties['name']])
+                cur = db.execute('SELECT description,guidance from controls where id=? ', [control._properties['name']])
                 details = cur.fetchone()
 
                 #TODO: Fix data in neo4j so I dont need to lowercase strings
-                title = control.properties['title']
+                title = control._properties['title']
                 name = title[0] + title[1:].lower()
                 control = {"name": name, "description" : details[0], "implementation" : details[1]}
                 childnodes.append(control)
@@ -68,28 +90,101 @@ def get_json_model(request, id=0):
 
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
+def get_features_json_model(request, id=0):
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
+    session = driver.session()
+    query = "MATCH(p: Project)-[h:HasFeature]-(f:Feature) WHERE  p.id = $id"
+    query +=" OPTIONAL MATCH(f)-[r:AttackVector]-(d:DetailedThreat)"
+    query +=" RETURN p.name as projectName, f.feature as feature, collect(d) as detailedThreat"
+
+    result = session.run(query, id=int(id))
+    session.close()
+    db = connect_db() #sqlite
+
+    nodes = []
+    for record in result.data():
+        projectName = record["projectName"]
+        childnodes =[]
+        for control in record["detailedThreat"]:
+
+                cur = db.execute('SELECT summary from detailedThreats where id=? ', [control._properties['threatId']])
+                details = cur.fetchone()
+
+                #TODO: Fix data in neo4j so I dont need to lowercase strings
+                title = control._properties['threat']
+                name = title[0] + title[1:].lower()
+                control = {"name": name, "description" : details[0], "implementation" : ""}
+                childnodes.append(control)
+
+        nodes.append({"name": record["feature"], "children" : childnodes})
+
+    return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
+
+def get_features_json_model2(request, id=0):
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
+    session = driver.session()
+    query= "MATCH z=(p:Project)-[]-(f:Feature)-[]-(t:Threat) WHERE p.id = 14"
+    query+=" OPTIONAL MATCH x=(t)-[]-(c:Control) "
+    query+=" RETURN z, x"
+
+    result = session.run(query, id=int(id))
+    session.close()
+    db = connect_db() #sqlite
+
+    nodes = []
+    for record in result.data():
+        projectName = record["projectName"]
+        childnodes =[]
+        for control in record["detailedThreat"]:
+
+                cur = db.execute('SELECT summary from detailedThreats where id=? ', [control._properties['threatId']])
+                details = cur.fetchone()
+
+                #TODO: Fix data in neo4j so I dont need to lowercase strings
+                title = control.properties['threat']
+                name = title[0] + title[1:].lower()
+                control = {"name": name, "description" : details[0], "implementation" : ""}
+                childnodes.append(control)
+
+        nodes.append({"name": record["feature"], "children" : childnodes})
+
+    return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
+
 def get_threats():
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
     session = driver.session()
     result = session.run("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")
     session.close()
 
     nodes = []
-    for threatData in result.data():
-        properties = threatData['threat'].properties
+    for threatData in result:
+        properties = threatData['threat']._properties
         threat = {"id": properties['threatId'],"name": properties['threat']}
         nodes.append(threat)
     return nodes
 
+def get_features():
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
+    session = driver.session()
+    result = session.run("MATCH(f:Feature) RETURN f as feature")
+    session.close()
+
+    nodes = []
+    for threatData in result.data():
+        properties = threatData['feature']._properties
+        threat = {"id": properties['featureId'],"name": properties['feature']}
+        nodes.append(threat)
+    return nodes
+
 def get_json_threats(request):
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
     session = driver.session()
     result = session.run("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")
     session.close()
 
     nodes = []
     for threatData in result.data():
-        properties = threatData['threat'].properties
+        properties = threatData['threat']._properties
         threat = {"id": properties['threatId'],"name": properties['threat']}
         nodes.append(threat)
 
@@ -113,11 +208,25 @@ def add_project(request):
         projectId = result.lastrowid
         db.commit()
 
-        query = "MATCH (t:Threat) WHERE t.threatId IN [{0}]".format(request.GET['threatList'])
-        query += " CREATE (p:Project{{name: '{0}', id:$id}})".format(projectName)
+        # Pretty sure thats an injection attack for neo4j using format
+        query = " CREATE (p:Project{{name: '{0}', id:$id}}) WITH p".format(projectName)
+        query += " MATCH (t:Threat) WHERE t.threatId IN [{0}]".format(request.GET['threatList'])
         query += " CREATE (p)-[:RiskOf]->(t)"
 
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
+        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
+        session = driver.session()
+        session.run(query, id=int(projectId))
+
+    return HttpResponse('{{"success":true, "projectId": {0}}}'.format(projectId))
+
+def add_features(request):
+    if request.method == 'GET':
+        projectId = request.GET['projectID']
+
+        #Pretty sure thats an injection attack for neo4j using format
+        query = "MATCH (f:Feature), (p:Project) WHERE f.featureId IN [{0}] AND p.id = $id CREATE (p)-[:HasFeature]->(f)".format(request.GET['threatList'])
+
+        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
         session = driver.session()
         session.run(query, id=int(projectId))
 
@@ -144,7 +253,7 @@ def delete_project(request, id=0):
 
         query = "MATCH (p:Project) WHERE p.id = $id DETACH DELETE p"
 
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon40j"))
+        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
         session = driver.session()
         session.run(query, id=int(projectId))
 
