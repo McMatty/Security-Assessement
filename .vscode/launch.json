@@ -2,6 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "PowerShell",
+            "request": "launch",
+            "name": "PowerShell Launch Current File",
+            "script": "${file}",
+            "args": [],
+            "cwd": "${file}"
+        },
+        {
             "name": "Python",
             "type": "python",
             "request": "launch",
@@ -18,7 +26,7 @@
             "name": "Django",
             "type": "python",
             "request": "launch",
-            "stopOnEntry": false,           
+            "stopOnEntry": false,
             "program": "${workspaceRoot}/manage.py",
             "args": [
                 "runserver",

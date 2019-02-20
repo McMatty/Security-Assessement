@@ -1,0 +1,5 @@
+CREATE TABLE `controls` ( `ID` , `DESCRIPTION` , `GUIDANCE` , `PRIORITY` )
+CREATE TABLE "detailedthreats" ( `ID` , `Summary` )
+CREATE TABLE `features` ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Description` INTEGER, PRIMARY KEY(`ID`) )
+CREATE TABLE "projects" ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Name` TEXT, `Owner` TEXT, `Reviewer` TEXT, `Classification` INTEGER )
+CREATE TABLE `finding` ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Description` TEXT, `Impact` TEXT, `Recommendation` TEXT, `Cvss` REAL, `RemediationEffort` INTEGER, `Vector` TEXT, `Rating` INTEGER )
