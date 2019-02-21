@@ -60,15 +60,20 @@ def features(request, id=0):
     }
     return HttpResponse(template.render(context, request))
 
-def get_json_model(request, id=0):
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
+def run_graph_query(query, id=0):
+    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j", "neon4j"))
     session = driver.session()
+    result = session.run(query, id=int(id))
+    session.close()
+
+    return result
+
+def get_json_model(request, id=0):   
     query = "MATCH(p: Project)-[r: RiskOf]-(t: Threat) WHERE  p.id = $id"
     query +=" OPTIONAL MATCH(t)-[m: Mitigation]-(c: Control)"
     query +=" RETURN p.name as projectName, t.threat as threat, collect(c) as control"
-
-    result = session.run(query, id=int(id))
-    session.close()
+    result = run_graph_query(query, id=int(id))
+  
     db = connect_db() #sqlite
 
     nodes = []
@@ -90,15 +95,12 @@ def get_json_model(request, id=0):
 
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
-def get_features_json_model(request, id=0):
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-    session = driver.session()
+def get_features_json_model(request, id=0):   
     query = "MATCH(p: Project)-[h:HasFeature]-(f:Feature) WHERE  p.id = $id"
     query +=" OPTIONAL MATCH(f)-[r:AttackVector]-(d:DetailedThreat)"
     query +=" RETURN p.name as projectName, f.feature as feature, collect(d) as detailedThreat"
-
-    result = session.run(query, id=int(id))
-    session.close()
+    result = run_graph_query(query, id=int(id))
+    
     db = connect_db() #sqlite
 
     nodes = []
@@ -120,15 +122,12 @@ def get_features_json_model(request, id=0):
 
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
-def get_features_json_model2(request, id=0):
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-    session = driver.session()
+def get_features_json_model2(request, id=0):   
     query= "MATCH z=(p:Project)-[]-(f:Feature)-[]-(t:Threat) WHERE p.id = 14"
     query+=" OPTIONAL MATCH x=(t)-[]-(c:Control) "
     query+=" RETURN z, x"
-
-    result = session.run(query, id=int(id))
-    session.close()
+    result = run_graph_query(query, id=int(id))
+    
     db = connect_db() #sqlite
 
     nodes = []
@@ -150,11 +149,8 @@ def get_features_json_model2(request, id=0):
 
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
-def get_threats():
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-    session = driver.session()
-    result = session.run("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")
-    session.close()
+def get_threats():    
+    result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")    
 
     nodes = []
     for threatData in result:
@@ -163,11 +159,8 @@ def get_threats():
         nodes.append(threat)
     return nodes
 
-def get_features():
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-    session = driver.session()
-    result = session.run("MATCH(f:Feature) RETURN f as feature")
-    session.close()
+def get_features():   
+    result = run_graph_query("MATCH(f:Feature) RETURN f as feature")    
 
     nodes = []
     for threatData in result.data():
@@ -176,11 +169,8 @@ def get_features():
         nodes.append(threat)
     return nodes
 
-def get_json_threats(request):
-    driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-    session = driver.session()
-    result = session.run("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")
-    session.close()
+def get_json_threats(request):    
+    result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")   
 
     nodes = []
     for threatData in result.data():
@@ -212,10 +202,7 @@ def add_project(request):
         query = " CREATE (p:Project{{name: '{0}', id:$id}}) WITH p".format(projectName)
         query += " MATCH (t:Threat) WHERE t.threatId IN [{0}]".format(request.GET['threatList'])
         query += " CREATE (p)-[:RiskOf]->(t)"
-
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-        session = driver.session()
-        session.run(query, id=int(projectId))
+        run_graph_query(query, id=int(projectId))
 
     return HttpResponse('{{"success":true, "projectId": {0}}}'.format(projectId))
 
@@ -225,10 +212,7 @@ def add_features(request):
 
         #Pretty sure thats an injection attack for neo4j using format
         query = "MATCH (f:Feature), (p:Project) WHERE f.featureId IN [{0}] AND p.id = $id CREATE (p)-[:HasFeature]->(f)".format(request.GET['threatList'])
-
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-        session = driver.session()
-        session.run(query, id=int(projectId))
+        run_graph_query(query, id=int(projectId))
 
     return HttpResponse('{{"success":true, "projectId": {0}}}'.format(projectId))
 
@@ -251,14 +235,7 @@ def delete_project(request, id=0):
         db.execute('DELETE FROM projects WHERE id =?',[projectId])
         db.commit()
 
-        query = "MATCH (p:Project) WHERE p.id = $id DETACH DELETE p"
-
-        driver = GraphDatabase.driver("bolt://localhost:7687", auth=basic_auth("neo4j2", "neo4j2"))
-        session = driver.session()
-        session.run(query, id=int(projectId))
+        query = "MATCH (p:Project) WHERE p.id = $id DETACH DELETE p"        
+        run_graph_query(query, id=int(projectId))
 
     return HttpResponse('{{"deleted":true, "projectId": {0}}}'.format(projectId))
-
-
-
-
