@@ -1,0 +1,102 @@
+        #container {
+            animation: fadein 1.5s opacity: 1;
+        }
+        
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        .project {
+            float: left;
+            padding: 5px;
+        }
+        
+        .project a {
+            width: 20vw;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+    
+        .threat-list li {
+            display: inline-block;
+            margin: 2px;
+            list-style: none;
+            padding: 2px 3px;
+            float: left;
+            transition: all 0.2s ease-in-out 0s;
+            cursor: pointer;
+        }
+        
+        .threat-list .threat {
+            background: #009688;
+            color: white;
+            border: 1px solid #d6d6d6;
+        }
+        
+        .active-threat {
+            background: #CE5D5D;
+            color: white;
+            border: 1px solid #1F1D1D;
+        }
+
+        h1 {
+            font-size: 1.9vw;
+        }
+        
+        h2 {
+            font-size: 1.1vw;
+        }
+        
+        h5 {
+            font-size: .7vw;
+        }
+        
+        ul {
+            list-style-type: none;
+        }
+        
+        #sidebar {
+            background: #5C5C5C;
+            font-size: .8vw;
+        }
+        
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        #information {
+            height: 88vh;
+        }
+        
+        .header {
+            height: 12vh;
+        }
+        
+        .node circle {
+            cursor: pointer;
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+        
+        .node text {
+            font-size: 15px;
+            font-family: "Helvetica Neue", Helvetica;
+            cursor: pointer;
+        }
+        
+        path.link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 1.5px;
+        }
+        
+        label {
+            font-weight: 100;
+        }

@@ -150,13 +150,14 @@ def get_features_json_model2(request, id=0):
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
 def get_threats():    
-    result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")    
+    result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")   
 
     nodes = []
     for threatData in result:
         properties = threatData['threat']._properties
         threat = {"id": properties['threatId'],"name": properties['threat']}
         nodes.append(threat)
+
     return nodes
 
 def get_features():   
@@ -167,6 +168,7 @@ def get_features():
         properties = threatData['feature']._properties
         threat = {"id": properties['featureId'],"name": properties['feature']}
         nodes.append(threat)
+        
     return nodes
 
 def get_json_threats(request):    

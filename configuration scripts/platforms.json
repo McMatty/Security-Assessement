@@ -1,0 +1,51 @@
+[{
+	"type" : "host", 
+	"objects" : [
+		{ "name" : "Azure"},
+		{ "name" : "AWS"},
+		{ "name" : "Android"},		
+		{ "name" : "Linux"},
+		{ "name" : "Windows"},
+		{ "name" : "IOS"}
+	]
+},
+{
+	"type" : "application platform",
+	 "objects" : [
+		{ "name" : "IIS"},
+		{ "name" : "Tomcat"},
+		{ "name" : "Docker"},
+		{ "name" : "Apache"},
+		{ "name" : "MSSQL"}		
+	]
+},
+{
+	"type" : "application", 
+	"objects" :[
+		{ "name" : "Web"},
+		{ "name" : "Desktop"},
+		{ "name" : "Mobile"}
+	]
+},
+{
+	"type" : "host component", 
+	"objects" : [
+		{ "name" : "File system"},
+		{ "name" : "File share"},
+		{ "name" : "Services"},
+		{ "name" : "User accounts"},
+		{ "name" : "Event logging"}		
+	]
+},
+{
+	"type" : "application component",
+	"objects" : [
+		{ "name" : "HTTP"}		
+	]
+},
+{
+	"type" : "attacks", 
+	"objects" : [
+		{ "name" : "Azure"}		
+	]
+}]
