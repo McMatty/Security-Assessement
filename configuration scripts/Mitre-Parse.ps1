@@ -39,8 +39,10 @@ function createHostNodes{
     param($collection)
 
     $collection | ForEach-Object {
-        
-        "CREATE (:$($_.type){name:$($_.name)})"
+        $type = $_.type
+        $_.objects | ForEach-Object {
+            "CREATE (:$type{name:$($_.name)})"
+        }
         #$createQuery
     }
 }
