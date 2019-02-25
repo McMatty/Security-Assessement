@@ -8,7 +8,7 @@ $neo4jDriver = "https://az320820.vo.msecnd.net/packages/neo4j.driver.1.7.0.nupkg
 
 Add-Type -Path $driverPath 
 
-function run_query{
+function run_query {
     param([string]$query)
 
     $authToken = [Neo4j.Driver.V1.AuthTokens]::Basic('neo4j', 'neon4j')
@@ -25,8 +25,8 @@ function run_query{
     }
 }
 
-function deleteAllNodes{ 
-        $deleteQuery = @"
+function deleteAllNodes { 
+    $deleteQuery = @"
         MATCH (n)
         OPTIONAL MATCH (n)-[r]-()
         DELETE n,r
@@ -35,7 +35,7 @@ function deleteAllNodes{
     run_query $deleteQuery
 }
 
-function createHostNodes{
+function createHostNodes {
     param($collection)
 
     $collection | ForEach-Object {
@@ -51,7 +51,7 @@ Clear-Host
 $countQuery = "MATCH (n) RETURN Count(n) AS NumNodes"
 run_query $countQuery
 
-$json =  Get-Content -Path "C:\CodeRepository\Security-Assessement\configuration scripts\platforms.json" | ConvertFrom-Json
+$json = Get-Content -Path "C:\CodeRepository\Security-Assessement\configuration scripts\platforms.json" | ConvertFrom-Json
 createHostNodes $json 
 
 
@@ -79,16 +79,34 @@ $tool = $mitre.objects | Where-Object {$_.type -eq $toolFilter }
 $mitreMatrix = $mitre.objects | Where-Object {$_.type -eq $mitreMatrixFilter }
 $mitreTactic = $mitre.objects | Where-Object {$_.type -eq $mitreTacticFilter }
 
-$json =  Get-Content -Path "C:\CodeRepository\Security-Assessement\configuration scripts\platforms.json" | ConvertFrom-Json
 
+##Generate IDs
 $typeID = 0
-add_id($json)
-$json | ForEach {add_id($_.objects)}
+
+function has_property{
+    param($propertyName, $object)
+    return [bool]($object.PSobject.Properties.name -match $propertyName)
+}
 
 function add_id{
     param($collection)
+    $collection | ForEach {
+        $Global:typeID++
 
-    $collection | ForEach {$Global:typeID++; $_ | Add-Member ID $typeID }
+        if( -not (has_property "ID" $_)){
+            ; $_ | Add-Member ID $typeID 
+        }
+        else
+        {
+            $_.ID = $typeID 
+        }
+    }
 }
+
+$json =  Get-Content -Path "C:\github\Security-Assessement\configuration scripts\platforms.json" | ConvertFrom-Json
+add_id($json)
+
+$json | ForEach {add_id($_.objects)}
+$json | ConvertTo-Json -Depth 5 
 
 #>

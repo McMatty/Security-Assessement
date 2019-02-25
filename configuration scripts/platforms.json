@@ -1,95 +1,132 @@
 [
-    {
-        "type":  "host",
-        "objects":  [
-                        {"name" : "Azure", "ID" : "7"},
-                        {"name" : "AWS", "ID" : "8"},
-                        {"name" : "Android", "ID" :"9"},
-                        {"name" : "Linux", "ID" :"10"},
-                        {"name" : "Windows", "ID" :"11"},
-                        {"name" : "IOS", "ID" :"12"}
+    {       "type":  "host",
+			"objects":  [
+                        { "name":  "Azure", "ID":  7},
+                        { "name":  "AWS", "ID":  8},
+                        { "name":  "Android", "ID":  9},
+                        { "name":  "Linux", "ID":  10},
+                        { "name":  "Windows", "ID":  11},
+                        { "name":  "IOS", "ID":  12}
                     ],
-        "ID":  "1"
+			"ID":  1
     },
-    {
-        "type":  "application platform",
-        "objects":  [
-                        {"name" : "IIS", "ID" :"13"},
-                        {"name" : "Tomcat", "ID" :"14"},
-                        {"name" : "Docker", "ID" :"15"},
-                        {"name" : "Apache", "ID" :"16"},
-                        {"name" : "MSSQL", "ID" :"17"}
+    {       "type":  "application platform",
+			"objects":  [
+                        { "name":  "IIS", "ID":  13},
+                        { "name":  "Tomcat", "ID":  14},
+                        { "name":  "Docker", "ID":  15},
+                        { "name":  "Apache", "ID":  16},
+                        { "name":  "MSSQL", "ID":  17},
+                        { "name":  "Hyper-V", "ID":  18},
+                        { "name":  "Kubernetes", "ID":  19},
+                        { "name":  "Jenkins", "ID":  20},
+                        { "name":  "PHP", "ID":  21},
+                        { "name":  "Mule", "ID":  22},
+                        { "name":  "Java virtual machine", "ID":  23}
                     ],
-        "ID":  "2"
+			"ID":  2
     },
-    {
-        "type":  "application",
-        "objects":  [
-                        {"name" : "Web", "ID" :"18"},
-                        {"name" : "Desktop", "ID" :"19"},
-                        {"name" : "Mobile", "ID" :"20"}
+    {       "type":  "application",
+			"objects":  [
+                        { "name":  "Web", "ID":  24},
+                        { "name":  "Desktop", "ID":  25},
+                        { "name":  "Server", "ID":  26},
+                        { "name":  "Client", "ID":  27},
+                        { "name":  "Mobile", "ID":  28}
                     ],
-        "ID":  "3"
+			"ID":  3
     },
-    {
-        "type":  "host component",
-        "objects":  [
-                        {"name" : "File system", "ID" :"21"},
-                        {"name" : "File share", "ID" :"22"},
-                        {"name" : "Services", "ID" :"23"},
-                        {"name" : "User accounts", "ID" :"24"},
-                        {"name" : "Event logging", "ID" :"25"},
-                        {"name" : "DNS", "ID" :"26"}
+    {       "type":  "host component",
+			"objects":  [
+                        { "name":  "File system", "ID":  29},
+                        { "name":  "File share", "ID":  30},
+                        { "name":  "Services", "ID":  31},
+                        { "name":  "User accounts", "ID":  32},
+                        { "name":  "Event logging", "ID":  33},
+                        { "name":  "DNS", "ID":  34},
+                        { "name":  "Authentication", "ID":  35},
+                        { "name":  "Authorization", "ID":  36},
+                        { "name":  "ACL", "ID":  37},
+                        { "name":  "File / folder permissions", "ID":  38},
+                        { "name":  "Operating system version", "ID":  39},
+                        { "name":  "Shared hosting", "ID":  40},
+                        { "name":  "SSH", "ID":  41},
+                        { "name":  "WinRM", "ID":  42},
+                        { "name":  "WMI", "ID":  43},
+                        { "name":  "Remote desktop", "ID":  44},
+                        { "name":  "Third party access", "ID":  45},
+                        { "name":  "File transfer protocol service", "ID":  46},
+                        { "name":  "Schedule task", "ID":  47},
+                        { "name":  "CRON", "ID":  48}
                     ],
-        "ID":  "4"
+			"ID":  4
     },
-    {
-        "type":  "application component",
-        "objects":  [
-                        {"name" : "Permissions", "ID" :"27"},
-                        {"name" : "API", "ID" :"28"},
-                        {"name" : "Authentication", "ID" :"29"},
-                        {"name" : "Browser", "ID" :"30"},
-                        {"name" : "Certificates", "ID" :"31"},
-                        {"name" : "Communications channels", "ID" :"32"},
-                        {"name" : "Configuration", "ID" :"33"},
-                        {"name" : "Cross domains communication", "ID" :"34"},
-                        {"name" : "Data parsing", "ID" :"35"},
-                        {"name" : "Data transfer", "ID" :"36"},
-                        {"name" : "Display untrusted data", "ID" :"37"},
-                        {"name" : "Email", "ID" :"38"},
-                        {"name" : "Encryption", "ID" :"39"},
-                        {"name" : "File download", "ID" :"40"},
-                        {"name" : "File system", "ID" :"41"},
-                        {"name" : "File upload", "ID" :"42"},
-                        {"name" : "HTTP", "ID" :"43"},
-                        {"name" : "Integrated solution", "ID" :"44"},
-                        {"name" : "JavaScript", "ID" :"45"},
-                        {"name" : "JSON", "ID" :"46"},
-                        {"name" : "LDAP", "ID" :"47"},
-                        {"name" : "Logging", "ID" :"48"},
-                        {"name" : "Login", "ID" :"49"},
-                        {"name" : "Credentials", "ID" :"50"},
-                        {"name" : "Regular expressions", "ID" :"51"},
-                        {"name" : "Sessions", "ID" :"52"},
-                        {"name" : "Shared resource / environment", "ID" :"53"},
-                        {"name" : "SMB / File server", "ID" :"54"},
-                        {"name" : "SOAP", "ID" :"55"},
-                        {"name" : "SQL", "ID" :"56"},
-                        {"name" : "Third party access", "ID" :"57"},
-                        {"name" : "Third party library / framework", "ID" :"58"},
-                        {"name" : "User input", "ID" :"59"},
-                        {"name" : "User registration", "ID" :"60"},
-                        {"name" : "XML", "ID" :"61"},
-                        {"name" : "Scripting language", "ID" :"62"}
+    {       "type":  "application component",
+			"objects":  [
+                        { "name":  "Permissions", "ID":  49},
+                        { "name":  "REST API", "ID":  50},
+                        { "name":  "Authentication", "ID":  51},
+                        { "name":  "Browser", "ID":  52},
+                        { "name":  "Certificates", "ID":  53},
+                        { "name":  "Communications channels", "ID":  54},
+                        { "name":  "Configuration", "ID":  55},
+                        { "name":  "Cross domains communication", "ID":  56},
+                        { "name":  "Data parsing", "ID":  57},
+                        { "name":  "Data transfer", "ID":  58},
+                        { "name":  "Untrusted data", "ID":  59},
+                        { "name":  "Email facalities", "ID":  60},
+                        { "name":  "Cryptography", "ID":  61},
+                        { "name":  "File serving", "ID":  62},
+                        { "name":  "File system access", "ID":  63},
+                        { "name":  "File upload", "ID":  64},
+                        { "name":  "HTTP", "ID":  65},
+                        { "name":  "Integrated solution", "ID":  66},
+                        { "name":  "JavaScript", "ID":  67},
+                        { "name":  "JSON", "ID":  68},
+                        { "name":  "LDAP", "ID":  69},
+                        { "name":  "Logging", "ID":  70},
+                        { "name":  "Login", "ID":  71},
+                        { "name":  "Credentials", "ID":  72},
+                        { "name":  "Regular expressions", "ID":  73},
+                        { "name":  "Sessions", "ID":  74},
+                        { "name":  "Shared resource / environment", "ID":  75},
+                        { "name":  "SMB / File server", "ID":  76},
+                        { "name":  "SOAP", "ID":  77},
+                        { "name":  "SQL queries", "ID":  78},
+                        { "name":  "Third party library / framework", "ID":  79},
+                        { "name":  "User registration", "ID":  80},
+                        { "name":  "XML", "ID":  81},
+                        { "name":  "Scripting language", "ID":  82},
+                        { "name":  "Error handling", "ID":  83},
+                        { "name":  "Cookies", "ID":  84},
+                        { "name":  "Local storage", "ID":  85},
+                        { "name":  "ACL", "ID":  86},
+                        { "name":  "Command shell", "ID":  87},
+                        { "name":  "Authorization", "ID":  88},
+                        { "name":  "Source code", "ID":  89},
+                        { "name":  "Repositories", "ID":  90},
+                        { "name":  "Development environment", "ID":  91},
+                        { "name":  "Password facalities", "ID":  92},
+                        { "name":  "Patching", "ID":  93},
+                        { "name":  "File integrity", "ID":  94},
+                        { "name":  "Data export / backup", "ID":  95},
+                        { "name":  "JWT", "ID":  96},
+                        { "name":  "SAML", "ID":  97},
+                        { "name":  "NTLM", "ID":  98},
+                        { "name":  "Kerberos", "ID":  99},
+                        { "name":  "User created content", "ID":  100},
+                        { "name":  "HTML", "ID":  101},
+                        { "name":  "External resources", "ID":  102},
+                        { "name":  "Public facing", "ID":  103},
+                        { "name":  "Host name", "ID":  104},
+						{ "name":  "Server side processinh", "ID":  105}
                     ],
-        "ID":  "5"
+			"ID":  5
     },
-    {
-        "type":  "attacks",
-        "objects":  [
-                        {"name" : "Azure", "ID" :"63"}
-                    ],
-        "ID":  "6"
+    {       "type":  "attacks",
+			"objects":  [
+							{ "name":  "Azure", "ID":  106}
+						],
+			"ID":  6
     }
 ]
