@@ -41,19 +41,38 @@ function createHostNodes {
     $collection | ForEach-Object {
         $type = $_.type
         $_.objects | ForEach-Object {
-            "CREATE (:$type{name:$($_.name)})"
+            run_query "CREATE (:$type{name:""$($_.name)"", id:$($_.id) })"
+        }      
+    }
+}
+
+function connectNodes {
+    param($collection)
+
+    $collection | ForEach-Object {
+       
+        $_.objects | ForEach-Object {
+            $integerString = $($_.ref | Sort-Object -Unique) -join "," 
+
+            if($integerString){
+                $query = "MATCH(child) WHERE child.id = $($_.id)"
+                $query += " MATCH(parent) WHERE parent.id IN [$integerString]"
+                $query += " CREATE (child)-[:relationship]->(parent)"
+                run_query $query
+            }
         }
-        #$createQuery
     }
 }
 
 Clear-Host
-$countQuery = "MATCH (n) RETURN Count(n) AS NumNodes"
-run_query $countQuery
+deleteAllNodes
 
 $json = Get-Content -Path "C:\CodeRepository\Security-Assessement\configuration scripts\platforms.json" | ConvertFrom-Json
 createHostNodes $json 
+connectNodes $json
 
+$countQuery = "MATCH (n) RETURN Count(n) AS NumNodes"
+run_query $countQuery
 
 <#
 $attackPatternFilter = "attack-pattern"
