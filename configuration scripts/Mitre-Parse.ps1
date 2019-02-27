@@ -15,9 +15,7 @@ function run_query {
     $dbDriver = [Neo4j.Driver.V1.GraphDatabase]::Driver("bolt://localhost:7687", $authToken)
     $session = $dbDriver.Session()
     try {
-        $result = $session.Run($query)
-    
-        Write-Host ($result | ConvertTo-JSON -Depth 5)
+        $null = $session.Run($query)        
     }
     finally {
         $session = $null

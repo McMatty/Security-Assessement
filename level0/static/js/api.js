@@ -28,21 +28,19 @@ function deleteProject(projectId){
     xhttp.send(); 
 }
 
-function generatePostData(threatList){
-    postData="projectName=" + document.getElementById('name').value
-    postData+="&email=" + document.getElementById('email').value
-    postData+="&phone=" + document.getElementById ('phone').value
-    
-    if(threatList && threatList.length > 0)
+function generatePostData(){
+    let elements = document.getElementById("project-metadata").getElementsByTagName("input")
+    let postData = null
+    for(let element of elements)
     {
-        postData+="&threatList="
-        threatList.forEach(function(item, index){
-            postData+= "'" + item.id + "'";
-            if(index < threatList.length - 1)                {
-                postData+= ","
-            }
-        });
-    }
+       if(postData == null){
+           postData = element.id.concat("=").concat(element.value)
+       }
+       else
+       {
+        postData = postData.concat("&").concat(element.id.concat("=").concat(element.value))
+       }
+    }     
 
     return postData;
 }
@@ -64,11 +62,8 @@ function generateFeaturesPostData(threatList){
     return postData;
 }
 
-function postProjectData(){
-    //Need to do a modal loading icon on screen to prevent reclicking
-    var threatList = Array.from(document.getElementsByClassName("active-threat"))
-    if (threatList && threatList.length > 0 && document.getElementById('name').value.length > 0){
-        var data = generatePostData(threatList);
+function postProjectData(){    
+        var data = generatePostData();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {       
@@ -82,11 +77,6 @@ function postProjectData(){
         xhttp.open("GET", "/level0/threats/add?" + data, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send(); 
-    }
-    else
-    {
-        alert('Fill the fields out (TODO: Nice modal message telling user they are dumb)')
-    }
 }
 
 function postProjectFeatures(){

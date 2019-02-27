@@ -14,7 +14,7 @@
     },
     {       "type":  "application_platform",
 			"objects":  [
-                        { "name":  "IIS", "ID":  13, "ref" : [11, 10]},
+                        { "name":  "IIS", "ID":  13, "ref" : [11]},
                         { "name":  "Tomcat", "ID":  14, "ref" : [23]},
                         { "name":  "Docker", "ID":  15, "ref" : [11, 10]},
                         { "name":  "Apache", "ID":  16, "ref" : [10]},
@@ -26,17 +26,7 @@
                         { "name":  "Mule", "ID":  22, "ref" : [23]}                        
                     ],
 			"ID":  2
-    },
-    {       "type":  "application",
-			"objects":  [
-                        { "name":  "Web", "ID":  24, "ref" : [7, 8, 10, 11]},
-                        { "name":  "Desktop", "ID":  25, "ref" : [11]},
-                        { "name":  "Server", "ID":  26, "ref" : [11, 7, 8, 10]},                        
-                        { "name":  "Mobile", "ID":  28, "ref" : [9, 12]},
-                        { "name":  "Serverless", "ID" : 107, "ref" : [7, 8]}
-                    ],
-			"ID":  3
-    },
+    },   
     {       "type":  "host_component",
 			"objects":  [
                         { "name":  "File system", "ID":  29, "ref" : [10,11,9,12]},
@@ -44,7 +34,6 @@
                         { "name":  "Services", "ID":  31, "ref" : [10,11]},
                         { "name":  "User accounts", "ID":  32, "ref" : [10,11]},
                         { "name":  "Event logging", "ID":  33, "ref" : [10,11,7,8]},
-                        { "name":  "Resolving DNS", "ID":  34, "ref" : [10,11,9,12]},
                         { "name":  "Authentication", "ID":  35, "ref" : [7,8,9,10,11,12]},
                         { "name":  "Authorization", "ID":  36, "ref" : []},
                         { "name":  "ACL", "ID":  37, "ref" : []},
@@ -67,10 +56,9 @@
 			"objects":  [
                         { "name":  "Permissions", "ID":  49, "ref" : []},
                         { "name":  "REST API", "ID":  50, "ref" : []},
-                        { "name":  "Authentication", "ID":  51, "ref" : []},                       
+                        { "name":  "Authentication", "ID":  51, "ref" : [2]},                       
                         { "name":  "Certificates", "ID":  53, "ref" : []},
-                        { "name":  "Communications channels", "ID":  54, "ref" : []},
-                        { "name":  "Configuration", "ID":  55, "ref" : []},
+                        { "name":  "Configuration", "ID":  55, "ref" : [24]},
                         { "name":  "Cross domains communication", "ID":  56, "ref" : []},
                         { "name":  "Data parsing", "ID":  57, "ref" : []},
                         { "name":  "Data transfer", "ID":  58, "ref" : []},
@@ -80,11 +68,11 @@
                         { "name":  "File serving", "ID":  62, "ref" : []},
                         { "name":  "File system access", "ID":  63, "ref" : []},
                         { "name":  "File upload", "ID":  64, "ref" : []},
-                        { "name":  "HTTP", "ID":  65, "ref" : []},
+                        { "name":  "HTTP", "ID":  65, "ref" : [24]},
                         { "name":  "Integrated solution", "ID":  66, "ref" : []},
-                        { "name":  "JavaScript", "ID":  67, "ref" : []},
-                        { "name":  "JSON", "ID":  68, "ref" : []},
-                        { "name":  "LDAP", "ID":  69, "ref" : []},
+                        { "name":  "JavaScript", "ID":  67, "ref" : [24]},
+                        { "name":  "JSON", "ID":  68, "ref" : [24]},
+                        { "name":  "LDAP", "ID":  69, "ref" : [25,24,26]},
                         { "name":  "Logging", "ID":  70, "ref" : []},
                         { "name":  "Login", "ID":  71, "ref" : []},
                         { "name":  "Credentials", "ID":  72, "ref" : []},
@@ -99,7 +87,7 @@
                         { "name":  "XML", "ID":  81, "ref" : []},
                         { "name":  "Scripting language", "ID":  82, "ref" : []},
                         { "name":  "Error handling", "ID":  83, "ref" : []},
-                        { "name":  "Cookies", "ID":  84, "ref" : []},
+                        { "name":  "Cookies", "ID":  84, "ref" : [24]},
                         { "name":  "Local storage", "ID":  85, "ref" : []},                       
                         { "name":  "Command shell", "ID":  87, "ref" : []},
                         { "name":  "Authorization", "ID":  88, "ref" : []},
