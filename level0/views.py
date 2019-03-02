@@ -192,11 +192,18 @@ def connect_db():
 def add_project(request):
     if request.method == 'GET':
         #TODO: transactional + exception handling
-        projectName = request.GET['projectName']
+        projectName     = request.GET['projectName']
+        testPeriod      = request.GET['testPeriod']
+        owner           = request.GET['projectOwner']
+        contract        = request.GET['projectContact']
+        reviewer        = request.GET['reviewer']
+        classification  = request.GET['classification']
+        repositories    = request.GET['codeRepository']
+        endpoints       = request.GET['endPoint']
 
         db = connect_db()  # sqlite
         cur = db.cursor()
-        result = cur.execute('INSERT INTO projects (Name) VALUES(?)', [projectName])
+        result = cur.execute('INSERT INTO projects (Name, TestPeriod, Owner, Contact, Reviewer, Classification, Repositories, Endpoints) VALUES(?)', [projectName,testPeriod,owner,contract,reviewer,classification,repositories,endpoints])
         projectId = result.lastrowid
         db.commit()
 

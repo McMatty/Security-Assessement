@@ -8,6 +8,7 @@ $neo4jDriver = "https://az320820.vo.msecnd.net/packages/neo4j.driver.1.7.0.nupkg
 
 Add-Type -Path $driverPath 
 
+
 function run_query {
     param([string]$query)
 
@@ -62,6 +63,24 @@ function connectNodes {
     }
 }
 
+function connectToSqlite{
+   
+    $con = New-Object -TypeName System.Data.SQLite.SQLiteConnection
+    $con.ConnectionString = "Data Source=C:\CodeRepository\Security-Assessement\db.sqlite3"
+    $con.Open()
+
+    $sql = $con.CreateCommand()
+    $sql.CommandText = "SELECT * FROM projects"
+
+    $adapter = New-Object -TypeName System.Data.SQLite.SQLiteDataAdapter $sql
+    #we create the dataset
+    $data = New-Object System.Data.DataSet
+    #and then fill the dataset
+    [void]$adapter.Fill($data)
+    #we can, of course, then display the first one hundred rows in a grid
+    (1..100) | ForEach-Object { $data.tables[0].Rows[$_] }
+}
+
 Clear-Host
 deleteAllNodes
 
@@ -71,6 +90,8 @@ connectNodes $json
 
 $countQuery = "MATCH (n) RETURN Count(n) AS NumNodes"
 run_query $countQuery
+
+connectToSqlite
 
 <#
 $attackPatternFilter = "attack-pattern"
