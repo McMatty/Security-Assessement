@@ -1,3 +1,4 @@
+#TODO: Split into two seperate scripts
 $outDirectory = "C:\temp\"
 $putFile = $outDirectory + "neo4j.zip"
 $driverDirectory = $outDirectory + "neo4jdriver"
@@ -7,12 +8,12 @@ $neo4jDriver = "https://az320820.vo.msecnd.net/packages/neo4j.driver.1.7.0.nupkg
 #Expand-Archive -Path $putFile -DestinationPath $driverDirectory 
 
 Add-Type -Path $driverPath 
-
+Add-Type -Path "$PSScriptRoot\System.Data.SQLite.dll" 
 
 function run_query {
     param([string]$query)
 
-    $authToken = [Neo4j.Driver.V1.AuthTokens]::Basic('neo4j', 'neon4j')
+    $authToken = [Neo4j.Driver.V1.AuthTokens]::Basic('neo4j2', 'neo4j2')
     $dbDriver = [Neo4j.Driver.V1.GraphDatabase]::Driver("bolt://localhost:7687", $authToken)
     $session = $dbDriver.Session()
     try {
@@ -53,7 +54,7 @@ function connectNodes {
         $_.objects | ForEach-Object {
             $integerString = $($_.ref | Sort-Object -Unique) -join "," 
 
-            if($integerString){
+            if ($integerString) {
                 $query = "MATCH(child) WHERE child.id = $($_.id)"
                 $query += " MATCH(parent) WHERE parent.id IN [$integerString]"
                 $query += " CREATE (child)-[:relationship]->(parent)"
@@ -63,14 +64,16 @@ function connectNodes {
     }
 }
 
-function connectToSqlite{
-   
+function sqliteExecute {
+    param($query)
+
+    #TODO: Try..except
     $con = New-Object -TypeName System.Data.SQLite.SQLiteConnection
-    $con.ConnectionString = "Data Source=C:\CodeRepository\Security-Assessement\db.sqlite3"
+    $con.ConnectionString = "Data Source=$PSScriptRoot\..\db.sqlite3"
     $con.Open()
 
     $sql = $con.CreateCommand()
-    $sql.CommandText = "SELECT * FROM projects"
+    $sql.CommandText = $query
 
     $adapter = New-Object -TypeName System.Data.SQLite.SQLiteDataAdapter $sql
     #we create the dataset
@@ -78,20 +81,51 @@ function connectToSqlite{
     #and then fill the dataset
     [void]$adapter.Fill($data)
     #we can, of course, then display the first one hundred rows in a grid
-    (1..100) | ForEach-Object { $data.tables[0].Rows[$_] }
+    $data.Tables[0]
+}
+
+function sqliteNonQuery {
+    param($query)
+
+    #TODO: Try..except
+    $con = New-Object -TypeName System.Data.SQLite.SQLiteConnection
+    try
+    {
+        $con.ConnectionString = "Data Source=$PSScriptRoot\..\db.sqlite3"
+        $con.Open()
+        try
+        {
+            $sql = $con.CreateCommand()
+            $sql.CommandText = $query
+            $null = $sql.ExecuteNonQuery()
+        }
+        finally
+        {
+            $sql.Dispose()
+        }
+    }
+    finally
+    {
+        $con.Close()
+    }
 }
 
 Clear-Host
 deleteAllNodes
 
-$json = Get-Content -Path "C:\CodeRepository\Security-Assessement\configuration scripts\platforms.json" | ConvertFrom-Json
+$json = Get-Content -Path "$PSScriptRoot\platforms.json" | ConvertFrom-Json
 createHostNodes $json 
 connectNodes $json
 
 $countQuery = "MATCH (n) RETURN Count(n) AS NumNodes"
 run_query $countQuery
 
-connectToSqlite
+$sqliteQuery = "DROP TABLE projects; CREATE TABLE IF NOT EXISTS projects ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, 'Name' TEXT, 'TestPeriod' TEXT, 'Owner' TEXT, 'Contact' TEXT, 'Reviewer' TEXT, 'Classification' TEXT, 'Repositories' TEXT, 'Endpoints' TEXT )"
+sqliteNonQuery $sqliteQuery
+
+$sqliteQuery = "DROP TABLE findings; CREATE TABLE IF NOT EXISTS findings ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Description` TEXT, `Impact` TEXT, `Recommendation` TEXT, `Cvss` REAL, `RemediationEffort` INTEGER, `Vector` TEXT, `Rating` INTEGER )"
+sqliteNonQuery $sqliteQuery
+
 
 <#
 $attackPatternFilter = "attack-pattern"
