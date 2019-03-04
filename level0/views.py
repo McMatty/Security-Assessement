@@ -11,26 +11,11 @@ def index(request):
     return HttpResponse()
 
 def new_project(request):
-    template = loader.get_template('level0/threats.html')
-    threatList = get_threats()
+    template = loader.get_template('level0/threats.html')   
     context = {
         'container': "level0/project-content.html",
         'metaContainer': "level0/project-details-add.html",
-        'id' : 0,
-        'threats' : threatList
-    }
-    return HttpResponse(template.render(context, request))
-
-def new_features(request):
-    template = loader.get_template('level0/threats.html')
-    threatList = get_features()
-    projectList = get_projects()
-    context = {
-        'container': "level0/project-content.html",
-        'metaContainer': "level0/project-features-add.html",
-        'id' : 0,
-        'threats' : threatList,
-        'projectList': projectList
+        'id' : 0        
     }
     return HttpResponse(template.render(context, request))
 
@@ -95,92 +80,16 @@ def get_json_model(request, id=0):
 
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
-def get_features_json_model(request, id=0):   
-    query = "MATCH(p: Project)-[h:HasFeature]-(f:Feature) WHERE  p.id = $id"
-    query +=" OPTIONAL MATCH(f)-[r:AttackVector]-(d:DetailedThreat)"
-    query +=" RETURN p.name as projectName, f.feature as feature, collect(d) as detailedThreat"
-    result = run_graph_query(query, id=int(id))
-    
-    db = connect_db() #sqlite
-
-    nodes = []
-    for record in result.data():
-        projectName = record["projectName"]
-        childnodes =[]
-        for control in record["detailedThreat"]:
-
-                cur = db.execute('SELECT summary from detailedThreats where id=? ', [control._properties['threatId']])
-                details = cur.fetchone()
-
-                #TODO: Fix data in neo4j so I dont need to lowercase strings
-                title = control._properties['threat']
-                name = title[0] + title[1:].lower()
-                control = {"name": name, "description" : details[0], "implementation" : ""}
-                childnodes.append(control)
-
-        nodes.append({"name": record["feature"], "children" : childnodes})
-
-    return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
-
-def get_features_json_model2(request, id=0):   
-    query= "MATCH z=(p:Project)-[]-(f:Feature)-[]-(t:Threat) WHERE p.id = 14"
-    query+=" OPTIONAL MATCH x=(t)-[]-(c:Control) "
-    query+=" RETURN z, x"
-    result = run_graph_query(query, id=int(id))
-    
-    db = connect_db() #sqlite
-
-    nodes = []
-    for record in result.data():
-        projectName = record["projectName"]
-        childnodes =[]
-        for control in record["detailedThreat"]:
-
-                cur = db.execute('SELECT summary from detailedThreats where id=? ', [control._properties['threatId']])
-                details = cur.fetchone()
-
-                #TODO: Fix data in neo4j so I dont need to lowercase strings
-                title = control.properties['threat']
-                name = title[0] + title[1:].lower()
-                control = {"name": name, "description" : details[0], "implementation" : ""}
-                childnodes.append(control)
-
-        nodes.append({"name": record["feature"], "children" : childnodes})
-
-    return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
-
-def get_threats():    
+def get_graphData(fieldName):    
     result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")   
 
     nodes = []
-    for threatData in result:
-        properties = threatData['threat']._properties
-        threat = {"id": properties['threatId'],"name": properties['threat']}
+    for graphData in result:
+        properties = graphData['threat']._properties
+        threat = {"id": properties['id'],"name": properties['name']}
         nodes.append(threat)
 
-    return nodes
-
-def get_features():   
-    result = run_graph_query("MATCH(f:Feature) RETURN f as feature")    
-
-    nodes = []
-    for threatData in result.data():
-        properties = threatData['feature']._properties
-        threat = {"id": properties['featureId'],"name": properties['feature']}
-        nodes.append(threat)
-        
-    return nodes
-
-def get_json_threats(request):    
-    result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")   
-
-    nodes = []
-    for threatData in result.data():
-        properties = threatData['threat']._properties
-        threat = {"id": properties['threatId'],"name": properties['threat']}
-        nodes.append(threat)
-
-    return HttpResponse(json.dumps(nodes), content_type="application/json")
+     return HttpResponse(json.dumps(nodes), content_type="application/json")
 
 def connect_db():
     """Connects to the specific database."""
@@ -203,25 +112,9 @@ def add_project(request):
 
         db = connect_db()  # sqlite
         cur = db.cursor()
-        result = cur.execute('INSERT INTO projects (Name, TestPeriod, Owner, Contact, Reviewer, Classification, Repositories, Endpoints) VALUES(?)', [projectName,testPeriod,owner,contract,reviewer,classification,repositories,endpoints])
+        result = cur.execute('INSERT INTO projects (Name, TestPeriod, Owner, Contact, Reviewer, Classification, Repositories, Endpoints) VALUES(?, ?, ?, ?, ?, ?, ?, ?)', [projectName,testPeriod,owner,contract,reviewer,classification,repositories,endpoints])
         projectId = result.lastrowid
         db.commit()
-
-        # Pretty sure thats an injection attack for neo4j using format
-        query = " CREATE (p:Project{{name: '{0}', id:$id}}) WITH p".format(projectName)
-        query += " MATCH (t:Threat) WHERE t.threatId IN [{0}]".format(request.GET['threatList'])
-        query += " CREATE (p)-[:RiskOf]->(t)"
-        run_graph_query(query, id=int(projectId))
-
-    return HttpResponse('{{"success":true, "projectId": {0}}}'.format(projectId))
-
-def add_features(request):
-    if request.method == 'GET':
-        projectId = request.GET['projectID']
-
-        #Pretty sure thats an injection attack for neo4j using format
-        query = "MATCH (f:Feature), (p:Project) WHERE f.featureId IN [{0}] AND p.id = $id CREATE (p)-[:HasFeature]->(f)".format(request.GET['threatList'])
-        run_graph_query(query, id=int(projectId))
 
     return HttpResponse('{{"success":true, "projectId": {0}}}'.format(projectId))
 

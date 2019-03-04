@@ -66,13 +66,13 @@ function postProjectData(){
         var data = generatePostData();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {       
-            var responseObj = JSON.parse(this.response)
-            if(responseObj.success === true)
-            {
-                window.location.href ='/level0/threats/' + responseObj.projectId
+            if (this.readyState == 4 && this.status == 200) {       
+                var responseObj = JSON.parse(this.response)
+                if(responseObj.success === true)
+                {
+                    window.location.href ='/level0/threats/' + responseObj.projectId
+                }
             }
-        }
         };
         xhttp.open("GET", "/level0/threats/add?" + data, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

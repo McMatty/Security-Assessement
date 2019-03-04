@@ -13,7 +13,7 @@ Add-Type -Path "$PSScriptRoot\System.Data.SQLite.dll"
 function run_query {
     param([string]$query)
 
-    $authToken = [Neo4j.Driver.V1.AuthTokens]::Basic('neo4j2', 'neo4j2')
+    $authToken = [Neo4j.Driver.V1.AuthTokens]::Basic('neo4j', 'neon4j')
     $dbDriver = [Neo4j.Driver.V1.GraphDatabase]::Driver("bolt://localhost:7687", $authToken)
     $session = $dbDriver.Session()
     try {
@@ -120,10 +120,10 @@ connectNodes $json
 $countQuery = "MATCH (n) RETURN Count(n) AS NumNodes"
 run_query $countQuery
 
-$sqliteQuery = "DROP TABLE projects; CREATE TABLE IF NOT EXISTS projects ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, 'Name' TEXT, 'TestPeriod' TEXT, 'Owner' TEXT, 'Contact' TEXT, 'Reviewer' TEXT, 'Classification' TEXT, 'Repositories' TEXT, 'Endpoints' TEXT )"
+$sqliteQuery = "DROP TABLE IF EXISTS projects; CREATE TABLE IF NOT EXISTS projects ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, 'Name' TEXT, 'TestPeriod' TEXT, 'Owner' TEXT, 'Contact' TEXT, 'Reviewer' TEXT, 'Classification' TEXT, 'Repositories' TEXT, 'Endpoints' TEXT )"
 sqliteNonQuery $sqliteQuery
 
-$sqliteQuery = "DROP TABLE findings; CREATE TABLE IF NOT EXISTS findings ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Description` TEXT, `Impact` TEXT, `Recommendation` TEXT, `Cvss` REAL, `RemediationEffort` INTEGER, `Vector` TEXT, `Rating` INTEGER )"
+$sqliteQuery = "DROP TABLE IF EXISTS findings; CREATE TABLE IF NOT EXISTS findings ( `ID` INTEGER PRIMARY KEY AUTOINCREMENT, `Description` TEXT, `Impact` TEXT, `Recommendation` TEXT, `Cvss` REAL, `RemediationEffort` INTEGER, `Vector` TEXT, `Rating` INTEGER )"
 sqliteNonQuery $sqliteQuery
 
 
