@@ -81,15 +81,24 @@ def get_json_model(request, id=0):
     return HttpResponse(json.dumps({"children": nodes, "name": projectName}), content_type="application/json")
 
 def get_graphData(fieldName):    
-    result = run_graph_query("MATCH(t:Threat) WHERE EXISTS(t.threat) RETURN t as threat")   
+    result = run_graph_query("MATCH(t:{0}) RETURN t as {0}".format(fieldName))   
 
     nodes = []
     for graphData in result:
-        properties = graphData['threat']._properties
+        properties = graphData[fieldName]._properties
         threat = {"id": properties['id'],"name": properties['name']}
         nodes.append(threat)
 
-     return HttpResponse(json.dumps(nodes), content_type="application/json")
+    return HttpResponse(json.dumps(nodes), content_type="application/json")
+
+def get_hosts(request):    
+    return get_graphData("host")
+
+def get_applicationComponent(request):    
+    return get_graphData("application_component")
+
+def get_hostComponent(request):    
+    return get_graphData("host_component")
 
 def connect_db():
     """Connects to the specific database."""
