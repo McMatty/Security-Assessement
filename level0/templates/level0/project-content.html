@@ -3,8 +3,8 @@
 </div>
 <div id="information" class="col-sm-8 w3-bar-block w3-card-2">
     <ul class="threat-list">
-        {% for threat in threats %}
-        <li class="threat" id="{{threat.id}}">{{threat.name}}</li>
+        {% for host in hosts %}
+        <li class="threat" id="{{host.id}}">{{host.name}}</li>
         {% endfor %}
     </ul>
 </div>
