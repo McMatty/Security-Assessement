@@ -12,10 +12,12 @@ def index(request):
 
 def new_project(request):
     template = loader.get_template('level0/threats.html')   
+    hostList = get_hosts()
     context = {
         'container': "level0/project-content.html",
         'metaContainer': "level0/project-details-add.html",
-        'id' : 0        
+        'id' : 0,
+        'hosts' : hostList        
     }
     return HttpResponse(template.render(context, request))
 
@@ -89,16 +91,18 @@ def get_graphData(fieldName):
         threat = {"id": properties['id'],"name": properties['name']}
         nodes.append(threat)
 
-    return HttpResponse(json.dumps(nodes), content_type="application/json")
+    return nodes
 
-def get_hosts(request):    
-    return get_graphData("host")
+def get_hosts():    
+    return get_graphData("host")    
 
 def get_applicationComponent(request):    
-    return get_graphData("application_component")
+    nodes = get_graphData("application_component")
+    return HttpResponse(json.dumps(nodes), content_type="application/json")
 
 def get_hostComponent(request):    
-    return get_graphData("host_component")
+    nodes = get_graphData("host_component")
+    return HttpResponse(json.dumps(nodes), content_type="application/json")
 
 def connect_db():
     """Connects to the specific database."""
