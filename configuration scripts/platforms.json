@@ -7,7 +7,6 @@
                         { "name":  "Linux", "ID":  10},
                         { "name":  "Windows", "ID":  11},
                         { "name":  "IOS", "ID":  12},
-                        { "name":  "Java virtual machine", "ID":  23, "ref" : [11, 10]},
                         { "name":  "Browser", "ID":  23, "ref" : []}
                     ],
 			"ID":  1
@@ -19,14 +18,18 @@
                         { "name":  "Docker", "ID":  15, "ref" : [11, 10]},
                         { "name":  "Apache", "ID":  16, "ref" : [10]},
                         { "name":  "MSSQL", "ID":  17, "ref" : [11]},
-                        { "name":  "Hyper-V", "ID":  18, "ref" : [11]},
+                        { "name":  "Hypervisor", "ID":  18, "ref" : [11]},
                         { "name":  "Kubernetes", "ID":  19, "ref" : [11,10,7,8]},
                         { "name":  "Jenkins", "ID":  20, "ref" : [11]},
                         { "name":  "PHP", "ID":  21, "ref" : [10]},
-                        { "name":  "Mule", "ID":  22, "ref" : [23]}                        
+                        { "name":  "Mule", "ID":  22, "ref" : [23]},                        
+                        { "name":  "Generic web server", "ID":  22, "ref" : []},
+                        { "name":  "Team foundation server", "ID":  "", "ref" : []},
+                        { "name":  "Bamboo", "ID": "", "ref" : []},
+                        { "name":  "Visual studio team server", "ID":  "", "ref" : []}                        
                     ],
 			"ID":  2
-    },   
+    },  
     {       "type":  "host_component",
 			"objects":  [
                         { "name":  "File system", "ID":  29, "ref" : [10,11,9,12]},
@@ -48,7 +51,12 @@
                         { "name":  "File transfer protocol service", "ID":  46, "ref" : []},
                         { "name":  "Schedule task", "ID":  47, "ref" : [11]},
                         { "name":  "CRON job", "ID":  48, "ref" : [10]},
-                        { "name":  "Kerberos", "ID":  99, "ref" : [24,25,26]}
+                        { "name":  "Kerberos", "ID":  99, "ref" : [24,25,26]},
+                        { "name":  "Active directory federation services", "ID":  "", "ref" : []},
+                        { "name":  "Firewall", "ID":  "", "ref" : []},
+                        { "name":  "Anti-malware", "ID":  "", "ref" : []},
+                        { "name":  "Application whitelisting", "ID":  "", "ref" : []},
+                        { "name":  "Command line", "ID":  "", "ref" : []}
                     ],
 			"ID":  4
     },
@@ -73,7 +81,7 @@
                         { "name":  "JavaScript", "ID":  67, "ref" : [24]},
                         { "name":  "JSON", "ID":  68, "ref" : [24]},
                         { "name":  "LDAP", "ID":  69, "ref" : [25,24,26]},
-                        { "name":  "Logging", "ID":  70, "ref" : []},
+                        { "name":  "Loging", "ID":  70, "ref" : []},
                         { "name":  "Login", "ID":  71, "ref" : []},
                         { "name":  "Credentials", "ID":  72, "ref" : []},
                         { "name":  "Regular expressions", "ID":  73, "ref" : []},

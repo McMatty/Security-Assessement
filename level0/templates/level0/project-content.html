@@ -1,10 +1,27 @@
 <div id="project-metadata" class="col-sm-4">
-     {% include metaContainer %}    
+    {% include metaContainer %}
 </div>
-<div id="information" class="col-sm-8 w3-bar-block w3-card-2">
+<div id="hosts" class="col-sm-4 w3-bar-block w3-card-2 w3-light-grey w3-text-teal w3-container w3-margin">
+    <h2>Hosts</h2>
     <ul class="threat-list">
         {% for host in hosts %}
         <li class="threat" id="{{host.id}}">{{host.name}}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="application_hosts" class="col-sm-4 w3-bar-block w3-card-2 w3-light-grey w3-text-teal w3-container w3-margin">
+    <h2>Application hosts</h2>
+    <ul class="threat-list">
+        {% for host in applicationHosts %}
+        <li class="threat" id="{{host.id}}">{{host.name}}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="host_components" class="col-sm-4 w3-bar-block w3-card-2 w3-light-grey w3-text-teal w3-container w3-margin">
+    <h2>Host components</h2>
+    <ul class="threat-list">
+        {% for component in hostComponents %}
+        <li class="threat" id="{{component.id}}">{{component.name}}</li>
         {% endfor %}
     </ul>
 </div>

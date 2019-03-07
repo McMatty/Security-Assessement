@@ -2,8 +2,7 @@
          {% for project in projectList %}
          <div class="project">
             <div>{{project.projectName}}</div>
-            <div><a class="w3-col w3-button w3-block w3-section w3-teal w3-ripple w3-padding" href="/level0/threats/{{project.id}}">Open threat ecosystem</a></div>
-            <div><a class="w3-col w3-button w3-block w3-section w3-teal w3-ripple w3-padding" href="/level0/features/{{project.id}}">Open detailed threats</a></div>           
+            <div><a class="w3-col w3-button w3-block w3-section w3-teal w3-ripple w3-padding" href="/level0/threats/{{project.id}}">Open project details</a></div>           
             <div><a class="w3-col w3-button w3-block w3-section w3-teal w3-ripple w3-padding" onclick="deleteProject({{project.id}})">Delete</a></div>    
          </div>  
         {% endfor %}  
